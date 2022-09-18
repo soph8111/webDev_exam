@@ -6,20 +6,20 @@ require_once __DIR__.'/comp_header.php';
 
     <h1>Welcome! Find a flexible flight for your next trip.</h1>
 
-    <div id="flight-search">
+    <div id="flight_search">
         <form>
             <div id="search_container">
-                <div id="from-container">
-                    <input id="from-input" name="from" type="text" placeholder="From?" 
+                <div id="from_container">
+                    <input id="from_input" name="from_city_name" type="text" placeholder="From?" 
                     oninput="showFromResults()"
                     onblur="hideFromResults()">
-                    <div id="from-results"></div>
+                    <div id="from_results"></div>
                 </div>
-                <div id="to-container">
-                    <input id="to-input" name="to" type="text" placeholder="To?" 
+                <div id="to_container">
+                    <input id="to_input" name="to_city_name" type="text" placeholder="To?" 
                     oninput="showToResults()"
                     onblur="hideToResults()">
-                    <div id="to-results"></div>
+                    <div id="to_results"></div>
                 </div>
             </div>
             <button id="search">Search</button>

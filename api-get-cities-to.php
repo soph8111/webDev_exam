@@ -9,6 +9,29 @@ ini_set('display_errors', 1);
 // PHP is not native to JSON, but there are options
 
 // VALIDATE
+$to_results = $_GET['to_city_name'];
+
+// If to_city_name is not passed in a GET
+if ( ! isset ($_GET['to_city_name'])) {
+    http_response_code(400);
+    echo json_encode(['info'=>'Missing to_city_name variable']);
+    exit();
+}
+
+// If to_city_name is too short
+if ( strlen($to_results) < 1 ) { // Strlen = string length
+    http_response_code(400);
+    echo json_encode(['info'=>'to_city_name is too short']); // Return text as json
+    exit();
+};
+
+// If to_city_name is too long
+if ( strlen($to_results) > 20 ) {
+    http_response_code(400);
+    echo json_encode(['info'=>'City name is too long']); // Return text as json
+    exit();
+};
+
 $from_results = $_GET['from_city_name'];
 
 // If from_city_name is not passed in a GET
@@ -32,19 +55,21 @@ if ( strlen($from_results) > 20 ) {
     exit();
 };
 
-//echo $from_results;
+//echo $to_results;
 
 // ########## CONNECT TO DATABASE ########## 
 // Tell php to try to run the following code. If it does not work, run catch
 try {
-    // Send them no results, if it can't find 'from_city'. Fallback
+    // Send them no results, if it can't find 'to_city'. Fallback
+    $to_city_name = $_GET['to_city_name'] ?? 0;
     $from_city_name = $_GET['from_city_name'] ?? 0;
     // Connect to a database. Create a new PDO-connection (a php function). Connect to momondo.db
     $db = new PDO('sqlite:'.__DIR__.'/momondo.db');
     // If there is an error, run the catch
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Search
-    $q = $db->prepare('SELECT * FROM flights WHERE from_city_name LIKE :from_city_name');
+    $q = $db->prepare('SELECT * FROM flights WHERE to_city_name LIKE :to_city_name AND from_city_name LIKE :from_city_name');
+    $q->bindValue(':to_city_name', '%'.$to_city_name.'%');
     $q->bindValue(':from_city_name', '%'.$from_city_name.'%');
     // Run the query
     $q->execute();
