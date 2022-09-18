@@ -160,7 +160,14 @@ div#flight_search div#to_container div#to_results div.to_result_container {
     display: grid;
     grid-template-columns: 1fr 4fr;
     align-items: center;
+    cursor: pointer;
 }
+
+div#flight_search div#from_container div#from_results div.from_result_container *,
+div#flight_search div#to_container div#to_results div.to_result_container * {
+    pointer-events: none;
+}
+
 
 div#flight_search div#from_container div#from_results div.from_result_container img,
 div#flight_search div#to_container div#to_results div.to_result_container img {

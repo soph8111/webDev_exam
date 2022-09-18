@@ -11,14 +11,12 @@ require_once __DIR__.'/comp_header.php';
             <div id="search_container">
                 <div id="from_container">
                     <input id="from_input" name="from_city_name" type="text" placeholder="From?" 
-                    oninput="showFromResults()"
-                    onblur="hideFromResults()">
+                    oninput="showFromResults()">
                     <div id="from_results"></div>
                 </div>
                 <div id="to_container">
                     <input id="to_input" name="to_city_name" type="text" placeholder="To?" 
-                    oninput="showToResults()"
-                    onblur="hideToResults()">
+                    oninput="showToResults()">
                     <div id="to_results"></div>
                 </div>
             </div>

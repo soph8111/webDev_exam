@@ -32,6 +32,29 @@ if ( strlen($from_results) > 20 ) {
     exit();
 };
 
+// $to_results = $_GET['to_city_name'];
+
+// // If to_city_name is not passed in a GET
+// if ( ! isset ($_GET['to_city_name'])) {
+//     http_response_code(400);
+//     echo json_encode(['info'=>'Missing to_city_name variable']);
+//     exit();
+// }
+
+// // If to_city_name is too short
+// if ( strlen($to_results) < 1 ) { // Strlen = string length
+//     http_response_code(400);
+//     echo json_encode(['info'=>'to_city_name is too short']); // Return text as json
+//     exit();
+// };
+
+// // If to_city_name is too long
+// if ( strlen($to_results) > 20 ) {
+//     http_response_code(400);
+//     echo json_encode(['info'=>'City name is too long']); // Return text as json
+//     exit();
+// };
+
 //echo $from_results;
 
 // ########## CONNECT TO DATABASE ########## 
@@ -39,13 +62,15 @@ if ( strlen($from_results) > 20 ) {
 try {
     // Send them no results, if it can't find 'from_city'. Fallback
     $from_city_name = $_GET['from_city_name'] ?? 0;
+    $to_city_name = $_GET['to_city_name'] ?? '';
     // Connect to a database. Create a new PDO-connection (a php function). Connect to momondo.db
     $db = new PDO('sqlite:'.__DIR__.'/momondo.db');
     // If there is an error, run the catch
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Search
-    $q = $db->prepare('SELECT * FROM flights WHERE from_city_name LIKE :from_city_name');
+    $q = $db->prepare('SELECT * FROM flights WHERE from_city_name LIKE :from_city_name AND to_city_name LIKE :to_city_name');
     $q->bindValue(':from_city_name', '%'.$from_city_name.'%');
+    $q->bindValue(':to_city_name', '%'.$to_city_name.'%');
     // Run the query
     $q->execute();
     // Do something with it. Get all the data and put it in af variable.

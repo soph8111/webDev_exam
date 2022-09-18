@@ -35,7 +35,7 @@ async function getCitiesFrom() {
 
   let allFlights = [];
   const originalFlightBlueprint = `
-    <div class="from_result_container">
+    <div class="from_result_container" onclick="selectFromCity()">
         <img src="#from_image#" alt="From city">
         <div class="from_details">
             <p class="from_city">#from_city#</p>
@@ -55,8 +55,17 @@ async function getCitiesFrom() {
   document.querySelector("#from_results").insertAdjacentHTML("afterbegin", allFlights);
 }
 
-function hideFromResults() {
+// function hideFromResults() {
+//   document.querySelector("#from_results").style.display = "none";
+//   document.querySelector("#from_input").value = "";
+// }
+
+function selectFromCity() {
+  const cityName = event.target.querySelector(".from_city").innerText;
+  document.querySelector("#from_input").style.pointerEvents = "none";
+  document.querySelector("#from_input").value = cityName;
   document.querySelector("#from_results").style.display = "none";
+  document.querySelector("#from_results").innerHTML = "";
 }
 
 // ########## GET CITIES TO ##########
@@ -87,7 +96,7 @@ async function getCitiesTo() {
 
   let allFlights = [];
   const originalFlightBlueprint = `
-      <div class="to_result_container">
+      <div class="to_result_container" onclick="selectToCity()">
           <img src="#to_image#" alt="To city">
           <div class="to_details">
               <p class="to_city">#to_city#</p>
@@ -107,6 +116,15 @@ async function getCitiesTo() {
   document.querySelector("#to_results").insertAdjacentHTML("afterbegin", allFlights);
 }
 
-function hideToResults() {
+// function hideToResults() {
+//   document.querySelector("#to_results").style.display = "none";
+//   document.querySelector("#to_input").value = "";
+// }
+
+function selectToCity() {
+  const cityName = event.target.querySelector(".to_city").innerText;
+  document.querySelector("#to_input").style.pointerEvents = "none";
+  document.querySelector("#to_input").value = cityName;
   document.querySelector("#to_results").style.display = "none";
+  document.querySelector("#to_results").innerHTML = "";
 }

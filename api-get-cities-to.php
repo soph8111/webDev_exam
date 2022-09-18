@@ -32,28 +32,28 @@ if ( strlen($to_results) > 20 ) {
     exit();
 };
 
-$from_results = $_GET['from_city_name'];
+// $from_results = $_GET['from_city_name'];
 
-// If from_city_name is not passed in a GET
-if ( ! isset ($_GET['from_city_name'])) {
-    http_response_code(400);
-    echo json_encode(['info'=>'Missing from_city_name variable']);
-    exit();
-}
+// // If from_city_name is not passed in a GET
+// if ( ! isset ($_GET['from_city_name'])) {
+//     http_response_code(400);
+//     echo json_encode(['info'=>'Missing from_city_name variable']);
+//     exit();
+// }
 
-// If from_city_name is too short
-if ( strlen($from_results) < 1 ) { // Strlen = string length
-    http_response_code(400);
-    echo json_encode(['info'=>'from_city_name is too short']); // Return text as json
-    exit();
-};
+// // If from_city_name is too short
+// if ( strlen($from_results) < 1 ) { // Strlen = string length
+//     http_response_code(400);
+//     echo json_encode(['info'=>'from_city_name is too short']); // Return text as json
+//     exit();
+// };
 
-// If from_city_name is too long
-if ( strlen($from_results) > 20 ) {
-    http_response_code(400);
-    echo json_encode(['info'=>'City name is too long']); // Return text as json
-    exit();
-};
+// // If from_city_name is too long
+// if ( strlen($from_results) > 20 ) {
+//     http_response_code(400);
+//     echo json_encode(['info'=>'City name is too long']); // Return text as json
+//     exit();
+// };
 
 //echo $to_results;
 
@@ -62,7 +62,7 @@ if ( strlen($from_results) > 20 ) {
 try {
     // Send them no results, if it can't find 'to_city'. Fallback
     $to_city_name = $_GET['to_city_name'] ?? 0;
-    $from_city_name = $_GET['from_city_name'] ?? 0;
+    $from_city_name = $_GET['from_city_name'] ?? '';
     // Connect to a database. Create a new PDO-connection (a php function). Connect to momondo.db
     $db = new PDO('sqlite:'.__DIR__.'/momondo.db');
     // If there is an error, run the catch
