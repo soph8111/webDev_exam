@@ -1,0 +1,43 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# VIEW 
+RewriteRule ^$                     view_index.php               [NC,L]
+RewriteRule ^home$                 view_index.php               [NC,L]
+RewriteRule ^login$                view_login.php               [NC,L]
+RewriteRule ^signup$               view_signup.php              [NC,L]
+RewriteRule ^admin$                view_admin.php               [NC,L]
+RewriteRule ^flights$              view_flights.php             [NC,L]
+RewriteRule ^stays$                view_stays.php               [NC,L]
+RewriteRule ^car_hire$             view_car_hire.php            [NC,L]
+RewriteRule ^campers$              view_campers.php             [NC,L]
+RewriteRule ^things_to_do$         view_things_to_do.php        [NC,L]
+RewriteRule ^holidays$             view_holidays.php            [NC,L]
+RewriteRule ^trains_and_buses$     view_trains_and_buses.php    [NC,L]
+RewriteRule ^explore$              view_explore.php             [NC,L]
+RewriteRule ^trips$                view_strips.php              [NC,L]
+
+
+
+# API
+RewriteRule ^api-signup$           api-signup.php               [NC,L]
+
+
+# BRIDGE
+RewriteRule ^bridge-login$         bridge-login.php             [NC,L]
+RewriteRule ^bridge-logout$        bridge-logout.php            [NC,L]
+
+
+# CSS
+RewriteRule ^mobile$                css_mobile.css              [NC,L]
+RewriteRule ^600$                   css_600.css                 [NC,L]
+RewriteRule ^900$                   css_900.css                 [NC,L]
+RewriteRule ^custom_properties$     css_custom_properties.css   [NC,L]
+RewriteRule ^final$                 css_final.css               [NC,L]
+RewriteRule ^combine-css$           css_combine-css.php         [NC,L]
+
+
+# JS
+RewriteRule ^validator$             js_validator.js             [NC,L]
+RewriteRule ^js_app$                js_app.js                   [NC,L]
+

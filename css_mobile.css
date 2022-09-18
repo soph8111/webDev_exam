@@ -1,0 +1,210 @@
+@import 'custom_properties';
+
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;}
+
+input{
+    height: 3rem;
+    padding: 0 2.2rem;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    background: var(--white);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: var(--main-purple);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+main {
+    padding: 1rem;
+}
+
+h1 {
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 1rem 2rem;
+}
+
+/* ########## MENU ########## */
+
+div#menu {
+    position: absolute;
+    top: 0;
+}
+
+div#menu div#burger_menu {
+    height: 4rem;
+    display: flex;
+    padding-left: 1rem;
+}
+
+div#menu div#burger_menu button{
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--white);
+    font-size: 1.5rem;
+}
+
+div#menu nav {
+    position: fixed;
+    background: var(--main-purple);
+    left: -200vw;
+    transition: 0.2s linear;
+}
+
+div#menu nav.active {
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+header {
+    width: 100%;
+    height: 4rem;
+    background: var(--main-purple);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem 0 3.6rem;
+}
+
+header div img {
+    content: url("/images/logo_mobile.png");
+    max-width: 28px;
+}
+
+header a {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+header a:not(#login-button) {
+    transition: color .4s ease;
+}
+
+header a:hover{
+    color: rgb(245, 115, 24, 1);
+    transition: color .4s ease;
+}
+
+header a#login-button{
+    border: 1px solid var(--white);
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.4rem;
+}
+
+header a#login-button:hover{
+    background: var(--white);
+    color: var(--main-purple);
+    transition: none;
+}
+
+header img {
+    width: 130px;
+}
+
+/*  ##########   ##########  */
+
+div#flight-search {
+    width: 100%;
+    height: 20rem;
+    background: var(--main-purple);
+    padding: 2rem 1rem;
+    
+}
+
+div#flight-search form div#search_container {
+    display: grid;
+    gap: 0.3rem;
+    background-color: var(--blue);
+    padding: 0.3rem;
+    border-radius: 0.25rem;
+}
+
+div#flight-search div#from-container input,
+div#flight-search div#to-container input{   
+    background-image: url('/images/icons/airplane.svg');
+    background-repeat: no-repeat;
+    background-size: 1.5rem;
+    background-position: 0.5rem;
+    width: 100%;
+}
+
+div#flight-search div#from-container div#from-results,
+div#flight-search div#to-container div#to-results {
+    position: absolute;
+    display: none;
+    width: 35vw;
+    background: var(--white);
+    outline: none;
+    border: none;
+    border-radius: 0.7rem;
+    margin-top: 0.5rem;
+}
+
+div#flight-search div#from-container div#from-results div.from-city,
+div#flight-search div#to-container div#to-results div.to-city {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+}
+
+div#flight-search div#from-container div#from-results div.from-city img,
+div#flight-search div#to-container div#to-results div.to-city img {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 20%;
+}
+
+div#flight-search button#search {
+    display: flex;
+    margin: 1rem auto;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: linear-gradient(135deg,#de1666 0%,#73146f 100%);
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ########## ########## */
+
+div#main{
+    width: 100%;
+    display: flex;
+}
+
+div#main div#left{
+    width: 25%;
+    height: 10rem;
+    background: var(--main-purple);
+}
+
+div#main div#right{
+    width: 75%;
+    height: 10rem;
+    background: var(--main-purple);
+}
+
+footer {
+    width: 100%;
+    background: var(--second-purple);
+    color: rgb(255, 255, 255, 0.6);
+    padding: 2rem 1rem;
+}
