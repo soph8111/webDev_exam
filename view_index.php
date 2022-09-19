@@ -20,7 +20,7 @@ require_once __DIR__.'/comp_header.php';
                     <div id="to_results"></div>
                 </div>
             </div>
-            <button id="search">Search</button>
+            <button id="search" onclick="showFlightResults(); return false">Search</button>
         </form>
     </div>
 
@@ -29,7 +29,8 @@ require_once __DIR__.'/comp_header.php';
             left
         </div>
         <div id="right">
-            right
+            <h2 id="title_of_flight_search"></h2>
+            <div id="flight_search_results"></div>
         </div>
     </div>
 

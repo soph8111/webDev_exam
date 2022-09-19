@@ -128,3 +128,58 @@ function selectToCity() {
   document.querySelector("#to_results").style.display = "none";
   document.querySelector("#to_results").innerHTML = "";
 }
+
+// ########## SHOW FLIGHTS ##########
+async function showFlightResults() {
+  console.log("clicked");
+  const fromInput = document.querySelector("#from_input");
+  const toInput = document.querySelector("#to_input");
+
+  // VALIDATE
+  if (fromInput.value == "") {
+    // console.log("From input is empty");
+    Swal.fire("You didn't select an airport", "You know where to travel from? Select an airport in the search form", "question");
+  }
+
+  if (toInput.value == "") {
+    // console.log("To input is empty");
+    Swal.fire("You didn't select an airport", "You know where to travel to? Select an airport in the search form", "question");
+  }
+
+  // SHOW REUSLTS
+  // Insert title of search
+  document.querySelector("#title_of_flight_search").innerHTML = "From " + fromInput.value + " to " + toInput.value;
+
+  // Clean the flights div, so we only show new results
+  document.querySelector("#flight_search_results").innerHTML = "";
+
+  let conn = await fetch("api-show-flight-results.php?from_city_name=" + fromInput.value + "&to_city_name=" + toInput.value);
+  const flightsResults = await conn.json();
+  console.log(flightsResults);
+
+  let allFlights = [];
+  const originalFlightBlueprint = `
+  <div class="flightResult">
+    <div class="flight_result_from_container">
+        <p>#result_from_city#</p>
+        <p>Departure: #departure_time#</p>
+    </div>
+    <div class="flight_result_to_container">
+        <p>#result_to_city#</p>
+        <p>Arrival: #arrival_time#</p>
+    </div>
+  </div>`;
+
+  flightsResults.forEach((flight) => {
+    let divFlight = originalFlightBlueprint;
+
+    divFlight = divFlight.replace("#result_from_city#", flight.from_city_name);
+    divFlight = divFlight.replace("#departure_time#", flight.departure_time);
+    divFlight = divFlight.replace("#result_to_city#", flight.to_city_name);
+    divFlight = divFlight.replace("#arrival_time#", flight.arrival_time);
+
+    allFlights += divFlight;
+  });
+
+  document.querySelector("#flight_search_results").insertAdjacentHTML("beforeend", allFlights);
+}

@@ -1,0 +1,21 @@
+@media (min-width: 600px) {
+    
+/* ########## ########## */
+
+    div#main{
+        width: 100%;
+        display: flex;
+    }
+
+    div#main div#left{
+        width: 25%;
+        height: 10rem;
+        background: var(--main-purple);
+    }
+
+    div#main div#right{
+        width: 75%;
+        height: 10rem;
+        background: var(--main-purple);
+    }
+}
