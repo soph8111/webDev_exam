@@ -1,7 +1,19 @@
 <?php
 ini_set('display_errors', 1);
 
-// ########## VALIDATE INPUT FIELDS ########## 
+define('_USER_FIRST_NAME_MIN_LEN', 2);
+define('_USER_FIRST_NAME_MAX_LEN', 20);
+define('_USER_LAST_NAME_MIN_LEN', 2);
+define('_USER_LAST_NAME_MAX_LEN', 20);
+
+define('_REGEX_EMAIL', '/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/');
+
+define('_REGEX_PASSWORD_MIN_CHAR', 8);
+define('_REGEX_PASSWORD_MIN_LETTER', 1);
+define('_REGEX_PASSWORD_MIN_NUM', 1);
+define('_REGEX_PASSWORD', '/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/');
+
+// ########## VALIDATE SEARCH FLIGHT INPUT FIELDS ########## 
 
 function _validate_from_city_name() {
     $from__city_name = $_GET['from_city_name'];
@@ -50,4 +62,55 @@ function _validate_to_city_name() {
         exit();
     };
 
+}
+
+// ########## VALIDATE LOGIN AND SIGNUP INPUT FILEDS ########## 
+function _validate_user_first_name(){
+    $error_message = 'user_first_name min ' . _USER_FIRST_NAME_MIN_LEN . ' max ' . _USER_FIRST_NAME_MAX_LEN. ' characters';
+    if ( ! isset($_POST['user_first_name'])) { _respond($error_message, 400); }
+    $_POST['user_first_name'] = trim($_POST['user_first_name']); 
+    if ( strlen($_POST['user_first_name']) < _USER_FIRST_NAME_MIN_LEN ) { _respond($error_message, 400); }
+    if ( strlen($_POST['user_first_name']) > _USER_FIRST_NAME_MAX_LEN ) { _respond($error_message, 400); }
+    return $_POST['user_first_name'];
+}
+
+function _validate_user_last_name(){
+    $error_message = 'user_last_name min ' . _USER_LAST_NAME_MIN_LEN . ' max ' . _USER_LAST_NAME_MAX_LEN. ' characters';
+    if ( ! isset($_POST['user_last_name'])) { _respond($error_message, 400); }
+    $_POST['user_last_name'] = trim($_POST['user_last_name']); 
+    if ( strlen($_POST['user_last_name']) < _USER_LAST_NAME_MIN_LEN ) { _respond($error_message, 400); }
+    if ( strlen($_POST['user_last_name']) > _USER_LAST_NAME_MAX_LEN ) { _respond($error_message, 400); }
+    return $_POST['user_last_name'];
+}
+
+function _validate_user_email() {
+    $error_message = 'user_email missing or invalid';
+    if ( ! isset($_POST['user_email'])) { _respond($error_message, 400); }
+    $_POST['user_email'] = trim($_POST['user_email']);
+    if ( ! preg_match(_REGEX_EMAIL, $_POST['user_email'])) { _respond($error_message, 400); };
+    return $_POST['user_email'];
+}
+
+function _validate_user_password() {
+    $error_message = 'user_password missing or invalid';
+    if ( ! isset($_POST['user_password'])) { _respond($error_message, 400); }
+    if ( ! preg_match(_REGEX_PASSWORD, $_POST['user_password'])) { _respond($error_message, 400); };
+    return $_POST['user_password'];
+}
+
+function _validate_user_password_confirm() {
+    $error_message = 'user_password_confirm missing or does not match user_password';
+    if ( ! isset($_POST['user_password_confirm'])) { _respond($error_message, 400); }
+    if ( $_POST['user_password'] != $_POST['user_password_confirm']) { _respond($error_message, 400); }
+    return $_POST['user_password_confirm'];
+}
+
+// ##############################
+// function that control the message
+function _respond( $message = '', $http_response_code = 200 ){ // Set the message to be empty and the http_response_code to 200 per default (if the developer forget to sendt it)
+    header('Content-Type: application/json'); // Makes the message look like a json object
+    http_response_code($http_response_code);
+    $response = is_array($message) ? $message : ['Info:' => $message] ; // If the message is an array, leave it like that. Else (if it's text) make it into an asso array
+    echo json_encode($response);
+    exit();
 }

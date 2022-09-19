@@ -15,11 +15,11 @@
 <body>
     <header>
         <div>
-            <img src="" alt="Momondo">
+            <a href="/"><img src="" alt="Momondo"></a>
         </div>
         <div>
             <a href="trips">Trips</a>
-            <a id="login-button" href="login">Login</a>
+            <a id="login-button" onclick="toggleLoginPopup()">Sign in</a>
             <a href="danish">🇩🇰 Dansk</a>
         </div>
     </header>

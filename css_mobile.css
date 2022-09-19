@@ -210,10 +210,152 @@ div#right div#flight_search_results {
 }
 
 div#right div#flight_search_results div.flightResult {
-    background: white;
+    background: var(--white);
     color: black;
     padding: 1rem;
     border-radius: 0.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+/* ########## LOGIN POPUP AND SIGNUP FORM ########## */
+
+div.login_overlay {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    transition: 0.6s cubic-bezier(0.42, 0, 0.28, 1.02);
+}
+
+div.login_overlay.active {
+    display: block;
+}
+
+div#login_popup {
+    background: white;
+    padding: 1.2rem 2rem;
+    border-radius: 0.8rem;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: -200vw;
+    transform: translate(-50%, -50%);
+    transition: 0.4s cubic-bezier(0.42, 0, 0.28, 1.02);
+}
+
+div#login_popup.active {
+    display: block;
+    left: 50%;
+}
+
+div#login_popup h3 {
+    text-align: center;
+    color: var(--main-purple);
+    padding-bottom: 1rem;
+}
+
+div#login_popup button.close_button{
+    position: absolute;
+    top: 8.5px;
+    right: 8.5px;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+div#login_popup p#or {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: #6d8494;
+    margin: 20px 0;
+}
+
+div#login_popup p#or::before,
+div#login_popup p#or::after {
+    content: "";
+    flex-grow: 1;
+    background: #edecec;
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+}
+
+div#login_popup div#login {
+    margin-top: 1.5rem;
+}
+
+div#login_popup form,
+form#signup_form  {
+    display: grid;
+    justify-content: center;
+    gap: 0.7rem;
+}
+
+div#login_popup form div.input_group,
+form#signup_form div.input_group {
+    display: grid;
+    gap: 0.3rem;
+}
+
+div#login_popup form input,
+form#signup_form input {
+    padding: 0.5rem;
+    border-radius: 6px;
+    width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+
+div#login_popup form button,
+div#signup button#signup_button,
+form#signup_form button#bt_signup {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: none;
+    margin-top: 0.8rem;
+    background: var(--orange);
+    font-size: 1rem;
+    font-weight: 500;
+    width: 100%;
+    color: var(--main-purple);
+}
+
+div#signup button#signup_button a{
+    text-decoration: none;
+    color: var(--main-purple);
+}
+
+div#signup p {
+    text-align: center;
+}
+
+form#signup_form {
+    background: white;
+    padding: 1.2rem 2rem;
+    border-radius: 0.8rem;
+    color: black;
+}
+
+form#signup_form  .input_regex_info {
+    font-size: 0.75rem;
+    color: rgba(17, 17, 17, 0.716);
+}
+
+form#signup_form  .input_group .error_message {
+    display: flex;
+    align-items: baseline;
+}
+
+form#signup_form .input_error_message {
+    color: rgb(188, 0, 0, 1);
+    font-size: 0.75rem;
+    padding-left: 0.5rem;
+}
+

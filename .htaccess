@@ -4,7 +4,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 # VIEW 
 RewriteRule ^$                     view_index.php               [NC,L]
 RewriteRule ^home$                 view_index.php               [NC,L]
-RewriteRule ^login$                view_login.php               [NC,L]
+# RewriteRule ^login$                view_login.php               [NC,L]
 RewriteRule ^signup$               view_signup.php              [NC,L]
 RewriteRule ^admin$                view_admin.php               [NC,L]
 RewriteRule ^flights$              view_flights.php             [NC,L]
@@ -29,15 +29,15 @@ RewriteRule ^bridge-logout$        bridge-logout.php            [NC,L]
 
 
 # CSS
-RewriteRule ^mobile$                css_mobile.css              [NC,L]
-RewriteRule ^600$                   css_600.css                 [NC,L]
-RewriteRule ^900$                   css_900.css                 [NC,L]
-RewriteRule ^custom_properties$     css_custom_properties.css   [NC,L]
-RewriteRule ^final$                 css_final.css               [NC,L]
-RewriteRule ^combine-css$           css_combine-css.php         [NC,L]
+RewriteRule ^mobile$               css_mobile.css              [NC,L]
+RewriteRule ^600$                  css_600.css                 [NC,L]
+RewriteRule ^900$                  css_900.css                 [NC,L]
+RewriteRule ^custom_properties$    css_custom_properties.css   [NC,L]
+RewriteRule ^final$                css_final.css               [NC,L]
+RewriteRule ^combine-css$          css_combine-css.php         [NC,L]
 
 
 # JS
-RewriteRule ^validator$             js_validator.js             [NC,L]
-RewriteRule ^js_app$                js_app.js                   [NC,L]
+RewriteRule ^js_validator$         js_validator.js             [NC,L]
+RewriteRule ^js_app$               js_app.js                   [NC,L]
 

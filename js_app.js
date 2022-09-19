@@ -1,5 +1,4 @@
 function toggleMenu() {
-  console.log("test");
   const menu = document.querySelector("nav");
   if (menu.classList.contains("active")) {
     menu.classList.remove("active");
@@ -182,4 +181,20 @@ async function showFlightResults() {
   });
 
   document.querySelector("#flight_search_results").insertAdjacentHTML("beforeend", allFlights);
+}
+
+// ########## TOGGLE LOGIN POPUP ##########
+function toggleLoginPopup() {
+  const popUp = document.querySelector("#login_popup");
+  const overlay = document.querySelector(".login_overlay");
+  if (popUp.classList.contains("active")) {
+    popUp.classList.remove("active");
+  } else {
+    popUp.classList.add("active");
+  }
+  if (overlay.classList.contains("active")) {
+    overlay.classList.remove("active");
+  } else {
+    overlay.classList.add("active");
+  }
 }
