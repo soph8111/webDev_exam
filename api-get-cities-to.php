@@ -8,54 +8,11 @@ ini_set('display_errors', 1);
 // Never test the API with the browser
 // PHP is not native to JSON, but there are options
 
+require_once __DIR__.'/_x.php';
+
 // VALIDATE
-$to_results = $_GET['to_city_name'];
-
-// If to_city_name is not passed in a GET
-if ( ! isset ($_GET['to_city_name'])) {
-    http_response_code(400);
-    echo json_encode(['info'=>'Missing to_city_name variable']);
-    exit();
-}
-
-// If to_city_name is too short
-if ( strlen($to_results) < 1 ) { // Strlen = string length
-    http_response_code(400);
-    echo json_encode(['info'=>'to_city_name is too short']); // Return text as json
-    exit();
-};
-
-// If to_city_name is too long
-if ( strlen($to_results) > 20 ) {
-    http_response_code(400);
-    echo json_encode(['info'=>'City name is too long']); // Return text as json
-    exit();
-};
-
-// $from_results = $_GET['from_city_name'];
-
-// // If from_city_name is not passed in a GET
-// if ( ! isset ($_GET['from_city_name'])) {
-//     http_response_code(400);
-//     echo json_encode(['info'=>'Missing from_city_name variable']);
-//     exit();
-// }
-
-// // If from_city_name is too short
-// if ( strlen($from_results) < 1 ) { // Strlen = string length
-//     http_response_code(400);
-//     echo json_encode(['info'=>'from_city_name is too short']); // Return text as json
-//     exit();
-// };
-
-// // If from_city_name is too long
-// if ( strlen($from_results) > 20 ) {
-//     http_response_code(400);
-//     echo json_encode(['info'=>'City name is too long']); // Return text as json
-//     exit();
-// };
-
-//echo $to_results;
+_validate_to_city_name();
+// _validate_from_city_name();
 
 // ########## CONNECT TO DATABASE ########## 
 // Tell php to try to run the following code. If it does not work, run catch
