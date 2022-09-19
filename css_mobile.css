@@ -66,12 +66,37 @@ div#menu nav {
     background: var(--main-purple);
     left: -200vw;
     transition: 0.2s linear;
+    padding: 1rem;
+}
+
+div#menu nav * {
+    color: var(--white);
+    text-decoration: none;
+    display: grid;
+    gap: 1rem;
+}
+
+div#menu nav > div {
+    padding: 1rem 0;
+}
+
+div#menu nav > div:not(:last-child) {
+    border-bottom: 1px solid rgba(167,98,234,0.4);
 }
 
 div#menu nav.active {
     left: 0;
     width: 100vw;
     height: 100vh;
+}
+
+div#menu nav svg {
+    width: 20px;
+    fill: var(--white);
+}
+
+div#menu nav a {
+    display: flex;
 }
 
 header {
