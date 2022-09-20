@@ -1,27 +1,28 @@
 <?php
 require_once __DIR__.'/comp_header.php';
 require_once __DIR__.'/_x.php';
+require_once __DIR__.'/comp_dictionary.php';
 ?>
 
 <main id="index">
 
-    <h1>Welcome! Find a flexible flight for your next trip.</h1>
+    <h1><?=$dictionary[$lang.'_welcome']?></h1>
 
     <div id="flight_search">
         <form>
             <div id="search_container">
                 <div id="from_container">
-                    <input id="from_input" name="from_city_name" type="text" placeholder="From?" 
+                    <input id="from_input" name="from_city_name" type="text" placeholder="<?=$dictionary[$lang.'_from']?>?" 
                     oninput="showFromResults()">
                     <div id="from_results"></div>
                 </div>
                 <div id="to_container">
-                    <input id="to_input" name="to_city_name" type="text" placeholder="To?" 
+                    <input id="to_input" name="to_city_name" type="text" placeholder="<?=$dictionary[$lang.'_to']?>?" 
                     oninput="showToResults()">
                     <div id="to_results"></div>
                 </div>
             </div>
-            <button id="search" onclick="showFlightResults(); return false">Search</button>
+            <button id="search" onclick="showFlightResults(); return false"><?=$dictionary[$lang.'_search']?></button>
         </form>
     </div>
 
@@ -44,33 +45,30 @@ require_once __DIR__.'/_x.php';
                 <div class="input_group">
                     <label>Email</label>
                     <input type="email"
-                    name="email"
-                    placeholder="Email"
-                    
+                    name="login_email"
+                    placeholder="Email"  
                 >
                 </div>
 
                 <div class="input_group">
                     <label>Password</label>
                     <input type="password"
-                    name="password"
+                    name="login_password"
                     placeholder="Password"
                     >
                 </div>
                 <button>Login</button>
             </form>
 
-            
-    
+            <p id="or">or</p>
 
-        <p id="or">or</p>
-        <h3>Sign up</h3>
+            <h3>Sign up</h3>
             <p>Don't have an account?</p>
             <button id="signup_button" onclick="showSignup()">Sign up here</button>
-            </div>
+        </div>
 
         <div id="signup_container">
-        <h3>Sign up</h3>
+            <h3>Sign up</h3>
             <form id="signup_form" onsubmit="validate(signup); return false">
                 <div class="input_group">
                     <label>

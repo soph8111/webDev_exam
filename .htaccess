@@ -17,8 +17,6 @@ RewriteRule ^trains_and_buses$     view_trains_and_buses.php    [NC,L]
 RewriteRule ^explore$              view_explore.php             [NC,L]
 RewriteRule ^trips$                view_strips.php              [NC,L]
 
-
-
 # API
 RewriteRule ^api-signup$           api-signup.php               [NC,L]
 

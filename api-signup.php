@@ -12,7 +12,8 @@ $user = [
     'user_id' => uniqid(),
     'user_first_name' => $_POST['user_first_name'],
     'user_last_name' => $_POST['user_last_name'],
-    'user_email' => $_POST['user_email']
+    'user_email' => $_POST['user_email'],
+    'user_password' => $_POST['user_password']
 ];
 
 // Success
