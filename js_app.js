@@ -61,7 +61,6 @@ async function getCitiesFrom() {
 
 function selectFromCity() {
   const cityName = event.target.querySelector(".from_city").innerText;
-  document.querySelector("#from_input").style.pointerEvents = "none";
   document.querySelector("#from_input").value = cityName;
   document.querySelector("#from_results").style.display = "none";
   document.querySelector("#from_results").innerHTML = "";
@@ -197,4 +196,13 @@ function toggleLoginPopup() {
   } else {
     overlay.classList.add("active");
   }
+  document.querySelector("#login_container").style.display = "block";
+  document.querySelector("#signup_container").style.display = "none";
 }
+
+function showSignup() {
+  document.querySelector("#login_container").style.display = "none";
+  document.querySelector("#signup_container").style.display = "block";
+}
+
+// ########## SIGNUP ##########

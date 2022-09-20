@@ -313,12 +313,18 @@ div#login_popup p#or::after {
     line-height: 0;
 }
 
-div#login_popup div#login {
+div#login_popup div#login_container,
+div#login_popup div#signup_container {
     margin-top: 1.5rem;
 }
 
-div#login_popup form,
-form#signup_form  {
+div#login_popup form#login_form {
+    display: grid;
+    justify-content: center;
+    gap: 0.7rem;
+}
+
+form#signup_form {
     display: grid;
     justify-content: center;
     gap: 0.7rem;
@@ -339,7 +345,7 @@ form#signup_form input {
 }
 
 div#login_popup form button,
-div#signup button#signup_button,
+div#signup_container button#signup_button,
 form#signup_form button#bt_signup {
     padding: 0.5rem;
     border-radius: 6px;
@@ -352,18 +358,17 @@ form#signup_form button#bt_signup {
     color: var(--main-purple);
 }
 
-div#signup button#signup_button a{
+div#signup_container button#signup_button a{
     text-decoration: none;
     color: var(--main-purple);
 }
 
-div#signup p {
+div#signup_container p {
     text-align: center;
 }
 
 form#signup_form {
     background: white;
-    padding: 1.2rem 2rem;
     border-radius: 0.8rem;
     color: black;
 }
@@ -373,7 +378,7 @@ form#signup_form  .input_regex_info {
     color: rgba(17, 17, 17, 0.716);
 }
 
-form#signup_form  .input_group .error_message {
+form#signup_form .input_group .error_message {
     display: flex;
     align-items: baseline;
 }
@@ -384,3 +389,6 @@ form#signup_form .input_error_message {
     padding-left: 0.5rem;
 }
 
+div#signup_container {
+    display: none;
+}

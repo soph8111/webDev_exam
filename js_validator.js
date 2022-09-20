@@ -58,3 +58,46 @@ function clear_validate_error() {
   // event.target.classList.remove("validate_error")
   // event.target.value = ""
 }
+
+async function signup() {
+  console.log("All input fileds validated correct");
+  const theForm = document.querySelector("#signup_form");
+  console.log(theForm);
+  const conn = await fetch("api-signup", {
+    method: "POST",
+    body: new FormData(theForm),
+  });
+  if (!conn.ok) {
+    console.log("Uppss...");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Something went wrong!",
+    });
+    return;
+  }
+  // Success
+  const user = await conn.json(); // Convert text to json
+  console.log(user.user_first_name);
+  Swal.fire({
+    icon: "success",
+    title: "Welcome " + user.user_first_name,
+    text: "You are now signed up",
+    confirmButtonText: '<a href="admin">Take me to the admin-page</a>',
+  });
+}
+
+async function isEmailAvailable() {
+  const form = event.target.form;
+  const conn = await fetch("api-is-email-available.php", {
+    method: "POST",
+    body: new FormData(form),
+  });
+  if (!conn.ok) {
+    document.querySelector("#email_error_message").style.display = "block";
+    //document.querySelector("#bt_signup").style.pointerEvents = "none";
+    return;
+  }
+  document.querySelector("#email_error_message").style.display = "none";
+  //document.querySelector("#bt_signup").style.pointerEvents = "auto";
+}
