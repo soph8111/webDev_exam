@@ -17,12 +17,12 @@ if ( ! ctype_digit($_POST['flight_id'])) {
     exit();
 }
 
-// To do: Delete the flight from the database
+// Delete the flight from the database
 try{
     $db = new PDO('sqlite:'.__DIR__.'/momondo.db');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $q = $db->prepare('DELETE FROM FLIGHTS WHERE id = :id');
-    $q->bindValue(':id', $_POST['flight_id']);
+    $q = $db->prepare('DELETE FROM FLIGHTS WHERE flight_id = :flight_id');
+    $q->bindValue(':flight_id', $_POST['flight_id']);
     $q->execute();
     // Success
     echo json_encode(['Info:' => 'Flight deleted', 'flight_id' => $_POST['flight_id']]);

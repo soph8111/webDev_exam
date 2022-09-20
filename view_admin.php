@@ -37,6 +37,14 @@ document.addEventListener("DOMContentLoaded", async function () {
             <p>#result_to_city#</p>
             <p>Arrival: #arrival_time#</p>
         </div>
+        <form onsubmit="return false">
+        <input 
+            type="text" 
+            style="display:none" 
+            name="flight_id" 
+            value="#flight_id#">
+        <button onclick="deleteFlight()">🗑️</button>
+        </form>
     </div>`;
 
     flights.forEach((flight) => {
@@ -46,6 +54,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         divFlight = divFlight.replace("#departure_time#", flight.departure_time);
         divFlight = divFlight.replace("#result_to_city#", flight.to_city_name);
         divFlight = divFlight.replace("#arrival_time#", flight.arrival_time);
+        divFlight = divFlight.replace("#flight_id#", flight.flight_id);
 
         allFlights += divFlight;
     });
@@ -53,6 +62,23 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.querySelector("#all_flights_in_db").insertAdjacentHTML("afterbegin", allFlights);
     
 });
+
+    async function deleteFlight() {
+    const theForm = event.target.form;
+    console.log(theForm)
+        const conn = await fetch('api-delete-flight-from-db.php', {
+            method: 'POST',
+            body: new FormData(theForm)
+        });
+        const data = await conn.json();
+        if ( ! conn.ok ) {
+            console.log(data);
+            return;
+        }
+        console.log(data);
+        theForm.parentElement.remove();
+        }
+
 </script>
 
 <?php

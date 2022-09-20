@@ -30,3 +30,4 @@
     If logged in - be able to like a flight
     If logged in - be able to remove a flight from the database
     Update bride-login so popup will show if wrong login
+    Validate api-show-all-flights-in-db
