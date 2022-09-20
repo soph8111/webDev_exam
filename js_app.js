@@ -35,9 +35,13 @@ async function getCitiesFrom() {
   let allFlights = [];
   const originalFlightBlueprint = `
     <div class="from_result_container" onclick="selectFromCity()">
-        <img src="#from_image#" alt="From city">
+        <img src="/images/cities/#from_image#" alt="From city">
         <div class="from_details">
+          <div class="from_top">
             <p class="from_city">#from_city#</p>
+            <p class="from_country">, #from_country#</p>
+            <p class="from_airport_short">#from_airport_short#</>
+          </div>
             <p class="from_airport">#from_airport#</p>
         </div>
     </div>`;
@@ -45,7 +49,10 @@ async function getCitiesFrom() {
   flights.forEach((flight) => {
     let divFlight = originalFlightBlueprint;
 
+    divFlight = divFlight.replace("#from_image#", flight.from_city_img);
     divFlight = divFlight.replace("#from_city#", flight.from_city_name);
+    divFlight = divFlight.replace("#from_country#", flight.from_country_name);
+    divFlight = divFlight.replace("#from_airport_short#", flight.from_city_airport_short);
     divFlight = divFlight.replace("#from_airport#", flight.from_city_airport_name);
 
     allFlights += divFlight;
@@ -94,18 +101,25 @@ async function getCitiesTo() {
 
   let allFlights = [];
   const originalFlightBlueprint = `
-      <div class="to_result_container" onclick="selectToCity()">
-          <img src="#to_image#" alt="To city">
-          <div class="to_details">
-              <p class="to_city">#to_city#</p>
-              <p class="to_airport">#to_airport#</p>
-          </div>
-      </div>`;
+  <div class="to_result_container" onclick="selectToCity()">
+      <img src="/images/cities/#to_image#" alt="To city">
+      <div class="to_details">
+        <div class="to_top">
+          <p class="to_city">#to_city#</p>
+          <p class="to_country">, #to_country#</p>
+          <p class="to_airport_short">#to_airport_short#</>
+        </div>
+        <p class="to_airport">#to_airport#</p>
+      </div>
+  </div>`;
 
   flights.forEach((flight) => {
     let divFlight = originalFlightBlueprint;
 
+    divFlight = divFlight.replace("#to_image#", flight.to_city_img);
     divFlight = divFlight.replace("#to_city#", flight.to_city_name);
+    divFlight = divFlight.replace("#to_country#", flight.to_country_name);
+    divFlight = divFlight.replace("#to_airport_short#", flight.to_city_airport_short);
     divFlight = divFlight.replace("#to_airport#", flight.to_city_airport_name);
 
     allFlights += divFlight;
@@ -144,7 +158,7 @@ async function showFlightResults() {
     Swal.fire("You didn't select an airport", "You know where to travel to? Select an airport in the search form", "question");
   }
 
-  // SHOW REUSLTS
+  // SHOW RESULTS
   // Insert title of search
   document.querySelector("#title_of_flight_search").innerHTML = "From " + fromInput.value + " to " + toInput.value;
 
@@ -264,3 +278,5 @@ async function isEmailAvailable() {
   document.querySelector("#email_error_message").style.display = "none";
   document.querySelector("#bt_signup").style.pointerEvents = "auto";
 }
+
+// ADMIN PAGE - SHOW ALL FLIGHTS IN DB

@@ -6,7 +6,7 @@
    
     A user can logout. Tip: Just create a bridge that destroys the session
    
-    A user enters a city name in a "from" and a "to" in some input fields and results will show up. Tip: Use AJAX/Fetch to get results from an API
+√   A user enters a city name in a "from" and a "to" in some input fields and results will show up. Tip: Use AJAX/Fetch to get results from an API
    
     If a user tries to "sign up" using an email that is hard-coded in the system, then the UI should notify the user that the email is already registered. All this, before the user even submits the form. Tip: This could be done on a "onblur" event, using AJAX and an API
    
@@ -26,3 +26,7 @@
 
 √   The "to" search sould only work if the "from" is correct
     Only show city one time on each search result
+    Style sweeet alert at showFlightResults()
+    If logged in - be able to like a flight
+    If logged in - be able to remove a flight from the database
+    Update bride-login so popup will show if wrong login
