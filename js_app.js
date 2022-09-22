@@ -30,7 +30,9 @@ async function getCitiesFrom() {
   const searchFor = document.querySelector("#from_input").value;
   let conn = await fetch("api-get-cities-from.php?from_city_name=" + searchFor); // fetch = get data in the background of the page
   let flights = await conn.json();
-  console.log(flights);
+
+  //console.log(flights);
+  // If more than one with the same name, only show one result
 
   let allFlights = [];
   const originalFlightBlueprint = `

@@ -1,16 +1,16 @@
-    Multi language page. At least 2 languages. Tip: Use a "dictionary.php" to keep the data
+√   Multi language page. At least 2 languages. Tip: Use a "dictionary.php" to keep the data
 
-    A user can login agains a hard-coded email and password. Tip: The hard-coded email could be "a@a.com" and the password "password".
+√   A user can login agains a hard-coded email and password. Tip: The hard-coded email could be "a@a.com" and the password "password".
    
-    A user can do a fake "signup". Meaning that the system will respond with a success signup if all the data is passed and verified correctly, or the system replies with an error. Tip: Create an API that validates for example the user_name, user_email, user_password, user_confirm_password, etc… and make sure that those values are validated. The response can just display a sweet alert.
+√   A user can do a fake "signup". Meaning that the system will respond with a success signup if all the data is passed and verified correctly, or the system replies with an error. Tip: Create an API that validates for example the user_name, user_email, user_password, user_confirm_password, etc… and make sure that those values are validated. The response can just display a sweet alert.
    
-    A user can logout. Tip: Just create a bridge that destroys the session
+√   A user can logout. Tip: Just create a bridge that destroys the session
    
 √   A user enters a city name in a "from" and a "to" in some input fields and results will show up. Tip: Use AJAX/Fetch to get results from an API
    
-    If a user tries to "sign up" using an email that is hard-coded in the system, then the UI should notify the user that the email is already registered. All this, before the user even submits the form. Tip: This could be done on a "onblur" event, using AJAX and an API
+√   If a user tries to "sign up" using an email that is hard-coded in the system, then the UI should notify the user that the email is already registered. All this, before the user even submits the form. Tip: This could be done on a "onblur" event, using AJAX and an API
    
-    If the user logs in correctly, then it acts as an administrator and should be able to delete any flight from the system. Tip: When the user logs in, use a session to make sure that the user can access the Admin page. The flights come from the database "momondo.db" that we have created. Next to each flight, you should show a "trash/wastebasket" and when clicked, the flight should be deleted from the user interface as well as from the database. This should be done with an Ajax/Fetch request and an API. This was done in the class.
+√   If the user logs in correctly, then it acts as an administrator and should be able to delete any flight from the system. Tip: When the user logs in, use a session to make sure that the user can access the Admin page. The flights come from the database "momondo.db" that we have created. Next to each flight, you should show a "trash/wastebasket" and when clicked, the flight should be deleted from the user interface as well as from the database. This should be done with an Ajax/Fetch request and an API. This was done in the class.
    
     The website must have at least 5 pages that contain some hard-coded DOM elements, images and look as professional as possible. Tip: Copy the images, colors, and positioning from momondo
    
@@ -26,8 +26,8 @@
 
 √   The "to" search sould only work if the "from" is correct
     Only show city one time on each search result
-    Style sweeet alert at showFlightResults()
+    Style sweet alert at showFlightResults()
     If logged in - be able to like a flight
-    If logged in - be able to remove a flight from the database
+√   If logged in - be able to remove a flight from the database
     Update bride-login so popup will show if wrong login
     Validate api-show-all-flights-in-db

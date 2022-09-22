@@ -14,6 +14,12 @@ require_once __DIR__.'/comp_header.php';
         ?>
     </h2>
 
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        Select image to upload:
+        <input type="file" name="file_to_upload" id="file_to_upload">
+        <input type="submit" value="Upload Image" name="submit">
+    </form>
+
     <div id="all_flights_in_db"></div>
 
 </main>
