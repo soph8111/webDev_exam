@@ -28,14 +28,27 @@ document.addEventListener("DOMContentLoaded", async function () {
     let allFlights = [];
 
     const originalFlightBlueprint = `
-    <div class="flightResult">
-        <div class="flight_result_from_container">
-            <p>#result_from_city#</p>
-            <p>Departure: #departure_time#</p>
+    <div id="delete_flight_container">
+        <div class="flightResult">
+        <img class="airline_img" src="/images/airlines/#airline_img#" alt="airline"></>
+        <div class="flight_result_info">
+            <div class="from_info">
+            <p class="departure_time">#departure_time#</p>
+            <p class="from_airport_short">#from_airport_short#</p>
+            <p class="from_airport_name">#from_airport_name#</p>
+            </div>
+            <div class="travel_divider">
+            <p class="divider"></p>
+            <p class="travel_hours">#travel_hours#</p>
+            </div>
+            <div class="to_info">
+            <p class="arrival_time">#arrival_time#</p>
+            <p class="to_airport_short">#to_airport_short#</p>
+            <p class="to_airport_name">#to_airport_name#</p>
+            </div>
         </div>
-        <div class="flight_result_to_container">
-            <p>#result_to_city#</p>
-            <p>Arrival: #arrival_time#</p>
+        <p class="flight_stops">#stops#</p>
+        <p class="ticket_price">#price#</p>
         </div>
         <form onsubmit="return false">
         <input 
@@ -50,10 +63,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     flights.forEach((flight) => {
         let divFlight = originalFlightBlueprint;
 
-        divFlight = divFlight.replace("#result_from_city#", flight.from_city_name);
+        divFlight = divFlight.replace("#airline_img#", flight.airline + ".png");
         divFlight = divFlight.replace("#departure_time#", flight.departure_time);
-        divFlight = divFlight.replace("#result_to_city#", flight.to_city_name);
         divFlight = divFlight.replace("#arrival_time#", flight.arrival_time);
+        divFlight = divFlight.replace("#from_airport_short#", flight.from_city_airport_short);
+        divFlight = divFlight.replace("#from_airport_name#", flight.from_city_airport_name);
+        divFlight = divFlight.replace("#to_airport_short#", flight.to_city_airport_short);
+        divFlight = divFlight.replace("#to_airport_name#", flight.to_city_airport_name);
+        divFlight = divFlight.replace("#stops#", flight.stops);
+        divFlight = divFlight.replace("#travel_hours#", flight.flight_time);
+        divFlight = divFlight.replace("#price#", flight.price + "￡");
         divFlight = divFlight.replace("#flight_id#", flight.flight_id);
 
         allFlights += divFlight;

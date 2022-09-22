@@ -150,12 +150,12 @@ async function showFlightResults() {
   // VALIDATE
   if (fromInput.value == "") {
     // console.log("From input is empty");
-    Swal.fire("You didn't select an airport", "You know where to travel from? Select an airport in the search form", "question");
+    Swal.fire("You didn't select any airport", "You know where to travel from? Select an airport in the search form", "question");
   }
 
   if (toInput.value == "") {
     // console.log("To input is empty");
-    Swal.fire("You didn't select an airport", "You know where to travel to? Select an airport in the search form", "question");
+    Swal.fire("You didn't select any airport", "You know where to travel to? Select an airport in the search form", "question");
   }
 
   // SHOW RESULTS
@@ -171,29 +171,46 @@ async function showFlightResults() {
 
   let allFlights = [];
   const originalFlightBlueprint = `
-  <div class="flightResult">
-    <div class="flight_result_from_container">
-        <p>#result_from_city#</p>
-        <p>Departure: #departure_time#</p>
-    </div>
-    <div class="flight_result_to_container">
-        <p>#result_to_city#</p>
-        <p>Arrival: #arrival_time#</p>
-    </div>
-  </div>`;
+    <div class="flightResult">
+      <img class="airline_img" src="/images/airlines/#airline_img#" alt="airline"></>
+      <div class="flight_result_info">
+        <div class="from_info">
+          <p class="departure_time">#departure_time#</p>
+          <p class="from_airport_short">#from_airport_short#</p>
+          <p class="from_airport_name">#from_airport_name#</p>
+        </div>
+        <div class="travel_divider">
+          <p class="divider"></p>
+          <p class="travel_hours">#travel_hours#</p>
+        </div>
+        <div class="to_info">
+          <p class="arrival_time">#arrival_time#</p>
+          <p class="to_airport_short">#to_airport_short#</p>
+          <p class="to_airport_name">#to_airport_name#</p>
+        </div>
+      </div>
+      <p class="flight_stops">#stops#</p>
+      <p class="ticket_price">#price#</p>
+    </div>`;
 
   flightsResults.forEach((flight) => {
     let divFlight = originalFlightBlueprint;
 
-    divFlight = divFlight.replace("#result_from_city#", flight.from_city_name);
+    divFlight = divFlight.replace("#airline_img#", flight.airline + ".png");
     divFlight = divFlight.replace("#departure_time#", flight.departure_time);
-    divFlight = divFlight.replace("#result_to_city#", flight.to_city_name);
     divFlight = divFlight.replace("#arrival_time#", flight.arrival_time);
+    divFlight = divFlight.replace("#from_airport_short#", flight.from_city_airport_short);
+    divFlight = divFlight.replace("#from_airport_name#", flight.from_city_airport_name);
+    divFlight = divFlight.replace("#to_airport_short#", flight.to_city_airport_short);
+    divFlight = divFlight.replace("#to_airport_name#", flight.to_city_airport_name);
+    divFlight = divFlight.replace("#stops#", flight.stops);
+    divFlight = divFlight.replace("#travel_hours#", flight.flight_time);
+    divFlight = divFlight.replace("#price#", flight.price + "￡");
 
     allFlights += divFlight;
   });
 
-  document.querySelector("#flight_search_results").insertAdjacentHTML("beforeend", allFlights);
+  document.querySelector("#flight_search_results").insertAdjacentHTML("afterbegin", allFlights);
 }
 
 // ########## TOGGLE LOGIN POPUP ##########

@@ -244,21 +244,84 @@ div#flight_search button#search {
 div#right h2#title_of_flight_search {
     text-align: center;
     padding: 0.8rem 0;
+    font-size: 1.3rem;
 }
 
-div#right div#flight_search_results {
+div#right div#flight_search_results, 
+div#all_flights_in_db {
     display: grid;
     gap: 1rem;
 }
 
-div#right div#flight_search_results div.flightResult {
-    background: var(--white);
+div.flightResult {
+    background: white;
     color: black;
-    padding: 1rem;
+    padding: 0.7rem;
     border-radius: 0.5rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.8fr 3fr 1fr 1fr;
+    align-items: center;
+    font-size: 0.8rem;
+    text-align: center;
+    gap: 0.6rem;
 }
+
+div#all_flights_in_db button {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg,#de1666a6 0%,#73146fb5 100%);
+    font-size: 1rem;
+}
+
+div#delete_flight_container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+div.flightResult img.airline_img {
+    width: 100%;
+}
+
+div.flightResult div.flight_result_info {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.flightResult div.flight_result_info div.from_info {
+    text-align: right;
+}
+
+div.flightResult div.flight_result_info div.to_info {
+    text-align: left;
+}
+
+div.flightResult div.flight_result_info div.from_info p.from_airport_short, div.flightResult div.flight_result_info div.to_info p.to_airport_short{
+    font-size: 0.65rem;
+}
+
+div.flightResult div.flight_result_info div.from_info p.from_airport_name, div.flightResult div.flight_result_info div.to_info p.to_airport_name {
+    display: none;
+}
+
+div.flightResult div.travel_divider {
+    display: grid;
+    align-items: center;
+}
+
+div.flightResult div.travel_divider p.divider {
+    height: 1px;
+    background: rgb(164, 164, 164);
+}
+
+div.flightResult div.travel_divider p.travel_hours {
+    color: rgb(164, 164, 164);
+    font-size: 0.7rem;
+}
+
+
 
 /* ########## LOGIN POPUP AND SIGNUP FORM ########## */
 
