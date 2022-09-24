@@ -3,22 +3,33 @@ $_title = "Admin";
 require_once __DIR__.'/comp_header.php';
 ?>
 
-<main>
+<main id="admin">
 
     <h1> <?= $_title ?? 'Title missing'?> </h1>
 
-    <h2>Welcome 
+    <h2>Welcome to the admin-page 
         <?php
         session_start();
         echo $_SESSION['user_first_name'];
         ?>
     </h2>
 
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        Select image to upload:
-        <input type="file" name="file_to_upload" id="file_to_upload">
-        <input type="submit" value="Upload Image" name="submit">
-    </form>
+    <p class="admin_intro">Here you can either remove flights from the database og import images</p>
+
+    <div id="admin_menu">
+        <p id="delete_flight" onclick="showAdminFlights()">Delete flights</p>
+        <p id="import_images" onclick="showAdminImages()">Import images</p>
+    </div>
+
+    <div id="upload_image_container">
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <label for="file_to_upload" class="custom_file_to_upload">
+            Select image
+            <input type="file" name="file_to_upload" id="file_to_upload">
+            </label>
+            <input id="import_image_button" type="submit" value="Upload Image" name="submit">
+        </form>
+    </div>
 
     <div id="all_flights_in_db"></div>
 

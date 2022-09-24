@@ -298,4 +298,18 @@ async function isEmailAvailable() {
   document.querySelector("#bt_signup").style.pointerEvents = "auto";
 }
 
-// ADMIN PAGE - SHOW ALL FLIGHTS IN DB
+// ########## ADMIN PAGE ##########
+
+function showAdminFlights() {
+  document.querySelector("#all_flights_in_db").style.display = "grid";
+  document.querySelector("#upload_image_container").style.display = "none";
+}
+
+function showAdminImages() {
+  document.querySelector("#all_flights_in_db").style.display = "none";
+  document.querySelector("#upload_image_container").style.display = "block";
+}
+
+function changeImage(imageName) {
+  console.log("test");
+}

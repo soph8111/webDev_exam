@@ -118,7 +118,7 @@ function _validate_item_image(){
       $accepted_image_formats = ['image/png', 'image/jpeg'];
       if( ! in_array($image_mime, $accepted_image_formats) ){
         http_response_code(400);
-        echo 'image not allowed';
+        // echo 'image not allowed';
         exit();
       }
       $random_image_name = bin2hex(random_bytes(16));
@@ -132,7 +132,7 @@ function _validate_item_image(){
       }
     
       if(move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], "$target_dir/$random_image_name")){
-        echo 'ok';
+        // echo 'ok';
         exit();
       }    
   }
