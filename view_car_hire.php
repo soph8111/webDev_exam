@@ -3,33 +3,22 @@ require_once __DIR__.'/_x.php';
 require_once __DIR__.'/comp_header.php';
 ?>
 
-<main id="stays">
+<main id="car_hire">
 
-    <h1>Book a stay with free cancellation - search now.</h1>
+    <h1>Hire a car with free cancellation - search now.</h1>
 
     <div class="static_form">
         <form>
             <div class="static_search_container">
-                <input type="text" placeholder="Enter a city, hotel, airport, address or landmark">
-                <input type="text" placeholder="Sun 25/9 - Mon 26/9">
-                <input type="text" placeholder="1 room, 2 guests">
+                <input type="text" placeholder="From?">
+                <input type="text" placeholder="Sun 1/10 | Noon">
+                <input type="text" placeholder="Sat 8/10 | Noon">
             </div>
             <button class="search_button"><?=$dictionary[$lang.'_search']?></button>
         </form>
     </div>
 
     <div class="main mgt_3">
-
-        <div class="image_and_text">
-            <div class="image_content">
-                <img src="images/static_pages/summer_break.jpg" alt="Best of cph">
-            </div>
-            <div class="text_content">
-                <h3>Book your summer break today</h3>
-                <p>Let the ‘Most Trusted Travel Company’ arrange your flight, transfer and accommodation all in one place</p>
-                <button>Book now</button>
-            </div>
-        </div>
 
         <div class="choose_momondo mgt_2">
             <h2>Here’s why travellers choose momondo</h2>
@@ -64,31 +53,31 @@ require_once __DIR__.'/comp_header.php';
         </div>
 
         <div class="explore mgt_3" >
-            <h2>Explore a variety of stays</h2>
-            <p class="exlpore_date mgt_05">Copenhagen • Sun, 25 Sep - Mon, 26 Sep</p>
+            <h2>Travel inspiration</h2>
+            <p class="exlpore_date mgt_05">Our latest travel tips, expert hacks and industry insights to help make your journey one to remember</p>
 
             <div class="slideshow_container">
                 <a class="prev" onclick="plusSlides(-1)">❮</a>
                 <a class="next" onclick="plusSlides(1)">❯</a>
                 <div class="mySlides">
-                    <img src="images/static_pages/stay_one.jpg">
+                    <img src="images/static_pages/travel_inspo_one.jpg">
                     <div class="text">
-                        <p>Aparthotel</p>
-                        <p>from £111</p>
+                        <p>Coronavirus update: What do the US travel restrictions mean for me?</p>
+                        <p>May 6, 2020 - 3 min</p>
                     </div>
                 </div>
                 <div class="mySlides">
-                    <img src="images/static_pages/stay_two.jpg">
+                    <img src="images/static_pages/travel_inspo_two.jpg">
                     <div class="text">
-                        <p>Hotel</p>
-                        <p>from £47</p>
+                        <p>What to know about coronavirus (COVID-19) and travel</p>
+                        <p>Jan 7, 2021 - 2 min</p>
                     </div>
                 </div>
                 <div class="mySlides">
-                    <img src="images/static_pages/stay_three.jpg">
+                    <img src="images/static_pages/travel_inspo_three.jpg">
                     <div class="text">
-                        <p>Rental</p>
-                        <p>from £105</p>
+                        <p>10 sustainable destinations to put on your bucket list</p>
+                        <p>May 6, 2020 - 10 min</p>
                     </div>
                 </div> 
             </div>
@@ -96,8 +85,8 @@ require_once __DIR__.'/comp_header.php';
         </div>
 
         <div class="text_and_content_small mgt_2">
-            <h3>Trending cities for hotels</h3>
-            <p class="intro mgt_1" >The most searched for hotel destinations on momondo</p>
+            <h3>Trending cities</h3>
+            <p class="intro mgt_1" >The most searched for cities on momondo</p>
 
             <div class="small_cards mgt_2">
                 <div class="small_card">

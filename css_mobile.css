@@ -530,7 +530,6 @@ div#upload_image_container form #import_image_button {
 /* Form */
 div.static_form {
     width: 100%;
-    height: 20rem;
     padding: 2rem 1rem;
 }
 
@@ -573,9 +572,8 @@ div.image_and_text {
     border-radius: 0.6rem;
 }
 
-div.image_and_text div.image_content div.the_image{
-    background: url(images/static_pages/summer_break.jpg);
-    background-size: cover;
+div.image_and_text div.image_content img{
+    object-fit: cover;
     background-repeat: no-repeat;
     background-position: center center;
     display: block;
@@ -634,7 +632,7 @@ div.choose_momondo div.reason p {
 /* Explore */
 
 div.explore div.slideshow_container img{
-    background-size: cover;
+    object-fit: cover;
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
@@ -651,13 +649,17 @@ div.explore div.slideshow_container a.next {
     border-radius: 0.6rem;
     color: #150127;
     position: relative;
-    bottom: 130px;
+    top: 115px;
     margin: 0 0.3rem;
 }
 
 div.explore div.slideshow_container a.next {
     float: right;
-    bottom: 145px;
+    top: 102px;
+}
+
+div.explore div.slideshow_container div.mySlides div.text{
+    height: 4rem;
 }
 
 div.explore div.slideshow_container div.mySlides p{
@@ -668,6 +670,23 @@ div.explore div.slideshow_container div.mySlides p:first-child{
     font-size: 0.9rem;
     font-weight: 600;
     padding: 0.3rem 0;
+}
+
+main#things_to_do div.explore div.slideshow_container img{
+    height: 232px;
+}
+
+main#things_to_do div.explore div.slideshow_container div.mySlides {
+    gap: 1rem;
+    width: 100%;
+}
+
+main#things_to_do div.explore div.slideshow_container a.prev{
+    top: 140px;
+}
+
+main#things_to_do div.explore div.slideshow_container a.next{
+    top: 130px;
 }
 
 /* Small cards */
@@ -716,3 +735,46 @@ div.small_cards  div.small_card div.text_content p:nth-child(2){
     font-weight: 600;
     color: rgb(0, 0, 0);
 }
+
+/* Map */
+
+div.map div.experiences {
+    padding: 1rem 0;
+    display: flex;
+    gap: 1.2rem;
+    overflow-x: auto;
+}
+
+div.map div.experiences div.experience {
+    display: grid;
+    grid-template-columns: auto 200px;
+    align-items: center;
+    gap: 1rem;
+}
+
+div.map div.experiences div.experience button{
+    display: none;
+}
+
+div.map div.experiences div.experience img{
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 0.6rem;
+}
+
+div.map div.experiences div.experience p {
+    font-weight: 600;
+}
+
+div.map .mapouter,
+div.map .gmap_canvas,
+div.map .gmap_iframe {
+    height: 281px !important;
+    border-radius: 0.6rem;
+    filter: grayscale(1);
+}
+div.map .gmap_canvas a {
+    display: none;
+}
+
