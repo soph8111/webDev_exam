@@ -779,3 +779,59 @@ div.map .gmap_canvas a {
     display: none;
 }
 
+/* ########## FOOTER ########## */
+
+footer {
+    padding: 2rem 1rem;
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+footer div.footer_links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(167,98,234,0.4);
+}
+
+footer div.footer_links .footer_subject {
+    display: grid;
+    align-self: baseline;
+    justify-content: center;
+}
+
+footer div.footer_links h6 {
+    font-size: 1rem;
+}
+
+footer div.footer_links ul {
+    list-style-type: none;
+}
+
+footer div.footer_links ul li{
+    margin-top: 0.5rem;
+}
+
+footer div.footer_links ul li a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+footer div.privacy_menu {
+    display: grid;
+    gap: 1rem;
+    text-align: center;
+}
+
+footer div.privacy_menu *{
+    font-size: 0.8rem;
+    color: #919191;
+    text-decoration: none;
+}
+
+footer div.privacy_menu .privacy_menu_link a{
+    margin: 0.5rem;
+}
+
+
+
