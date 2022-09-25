@@ -50,6 +50,7 @@ h1 {
 div#menu {
     position: absolute;
     top: 0;
+    left: 0;
 }
 
 div#menu div#burger_menu {

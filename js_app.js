@@ -1,9 +1,15 @@
 function toggleMenu() {
   const menu = document.querySelector("nav");
+  const body = document.querySelector("body");
+  const header = document.querySelector("header");
   if (menu.classList.contains("active")) {
     menu.classList.remove("active");
+    body.classList.remove("active");
+    header.classList.remove("active");
   } else {
     menu.classList.add("active");
+    body.classList.add("active");
+    header.classList.add("active");
   }
 }
 
