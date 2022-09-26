@@ -58,3 +58,15 @@ function clear_validate_error() {
   // event.target.classList.remove("validate_error")
   // event.target.value = ""
 }
+
+function validateImage(callback) {
+  const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+  if (!allowedExtensions.exec(document.querySelector("#file_to_upload").value)) {
+    // alert('Please upload file having extensions .jpeg/.jpg/.png only.');
+    document.querySelector(".image_error").style.visibility = "visible";
+    // document.querySelector('#fileToUpload').value = '';
+    return;
+  }
+  callback();
+  return;
+}

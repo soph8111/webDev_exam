@@ -316,6 +316,20 @@ function showAdminImages() {
   document.querySelector("#upload_image_container").style.display = "block";
 }
 
-function changeImage(imageName) {
-  console.log("test");
+// function changeImage(imageName) {
+//   console.log("test");
+// }
+
+async function uploadImage() {
+  const theForm = document.querySelector("#upload_image_form");
+  console.log(theForm);
+  const conn = await fetch("api-upload-image.php", {
+    method: "POST",
+    body: new FormData(theForm),
+  });
+  if (!conn.ok) {
+    console.log("error");
+    return;
+  }
+  console.log("image uploaded");
 }

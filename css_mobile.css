@@ -497,7 +497,7 @@ div#upload_image_container {
     display: none;
 }
 
-div#upload_image_container form {
+/* div#upload_image_container form {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 1rem;
@@ -524,7 +524,7 @@ div#upload_image_container form #import_image_button {
     width: auto;
     color: var(--white);
     height: 2.5rem;
-}
+} */
 
 /* ########## STATIC SITES ########## */
 
@@ -835,3 +835,6 @@ footer div.privacy_menu .privacy_menu_link a{
 
 
 
+.image_error {
+    visibility: hidden;
+}
