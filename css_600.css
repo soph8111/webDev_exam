@@ -1,24 +1,32 @@
 @media (min-width: 600px) {
 
-    body, header {
-        margin-left: 0;
+    body{
+        margin-left: 60px;
         width: auto;
-        transition: 0.2s linear;
+        transition: margin-left 0.2s linear;
     }
 
     body.active {
         margin-left: 240px;
-        transition: 0.2s linear;
+        transition: margin-left 0.2s linear;
     }
 
     header {
         position: fixed;
-        width: 100%;
+        width: calc(100% - 60px);
         z-index: 100;
+        padding: 0 1rem;
+        transition: 0.2s linear;
     }
 
     header.active {
         width: calc(100% - 240px);
+        transition:  0.2s linear;
+    }
+
+    header div img {
+        content: url("images/logo_desktop.png");
+        max-width: 130px;
     }
 
     main {
@@ -46,11 +54,15 @@
         cursor: pointer;
     }
 
-    div#menu nav {
-        left: -480px;       
+    div#menu nav {    
         padding-top: 4rem;
         top: 0;
         z-index: 99;
+        left: 0;
+        height: 100vh;
+        width: 60px;
+        overflow-x: hidden;
+        border-right: 1px solid rgba(167,98,234,0.4);
     }
 
     div#menu nav.active {
@@ -58,14 +70,11 @@
         border-right: 1px solid rgba(167,98,234,0.4);
     }
 
-    header.active {
-        padding: 0 1rem;
+    div#menu nav a {
+        width: 240px;
+        padding: 0 0.7rem;
     }
 
-    header div img {
-        content: url("images/logo_desktop.png");
-        max-width: 130px;
-    }
     
 /* ########## ########## */
 
@@ -177,7 +186,7 @@
 
     div.image_and_text div.text_content {
         position: relative;
-        bottom: 45%;
+        bottom: 55%;
         width: 45%;
         background: var(--main-purple);
         border-radius: 0.6rem;
