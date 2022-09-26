@@ -25,7 +25,7 @@ try {
     // If there is an error, run the catch
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Search
-    $q = $db->prepare('SELECT DISTINCT from_city_name, from_city_airport_name, from_city_img, from_city_airport_short, to_city_name, to_city_airport_name, to_city_img, to_city_airport_short FROM flights WHERE to_city_name LIKE :to_city_name AND from_city_name LIKE :from_city_name');
+    $q = $db->prepare('SELECT DISTINCT from_city_name, from_city_airport_name, to_country_name, from_city_img, from_city_airport_short, to_city_name, to_city_airport_name, to_city_img, to_city_airport_short FROM flights WHERE to_city_name LIKE :to_city_name AND from_city_name LIKE :from_city_name');
     $q->bindValue(':to_city_name', '%'.$to_city_name.'%');
     $q->bindValue(':from_city_name', '%'.$from_city_name.'%');
     // Run the query

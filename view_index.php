@@ -1,4 +1,5 @@
 <?php
+$_title = "Momondo";
 require_once __DIR__.'/_x.php';
 require_once __DIR__.'/comp_dictionary.php';
 require_once __DIR__.'/comp_header.php';

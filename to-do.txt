@@ -34,5 +34,7 @@
 √   Validation on the image upload
     Move JS in admin page
     Update htaccess with.php
+    Fix fade onload (translate)
+    ?_title
 
     
