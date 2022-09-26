@@ -100,7 +100,7 @@ require_once __DIR__.'/comp_header.php';
 
         </div>
 
-        <div class="text_and_content_small mgt_2">
+        <div class="text_and_content_small mgt_3">
             <h3>Trending cities for hotels</h3>
             <p class="intro mgt_1" >The most searched for hotel destinations on momondo</p>
 
@@ -133,6 +133,41 @@ require_once __DIR__.'/comp_header.php';
                         <p>Rome</p>
                     </div>
                 </div>
+                <div class="small_card">
+                    <img src="images/static_pages/gatwick.jpg" alt="">
+                    <div class="text_content">
+                        <p>Hotels in</p>
+                        <p>Gatwick</p>
+                    </div>
+                </div>
+                <div class="small_card">
+                    <img src="images/static_pages/belfast.jpg" alt="">
+                    <div class="text_content">
+                        <p>Hotels in</p>
+                        <p>Belfast</p>
+                    </div>
+                </div>
+                <div class="small_card">
+                    <img src="images/static_pages/lisbon.jpg" alt="">
+                    <div class="text_content">
+                        <p>Hotels in</p>
+                        <p>Lisbon</p>
+                    </div>
+                </div>
+                <div class="small_card">
+                    <img src="images/static_pages/singapore.jpg" alt="">
+                    <div class="text_content">
+                        <p>Hotels in</p>
+                        <p>Singapore</p>
+                    </div>
+                </div>
+                <div class="small_card">
+                    <img src="images/static_pages/bangkok.jpg" alt="">
+                    <div class="text_content">
+                        <p>Hotels in</p>
+                        <p>Bangkok</p>
+                    </div>
+                </div>
             <div class="small_cards">
         </div>
 
@@ -143,30 +178,6 @@ require_once __DIR__.'/comp_header.php';
     ?>
 
 </main>
-
-<script>
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slides[slideIndex-1].style.display = "block";  
-}
-</script>
 
 <?php
 require_once __DIR__.'/comp_footer.php';

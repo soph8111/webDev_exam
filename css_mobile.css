@@ -30,6 +30,7 @@ body {
 
 main {
     padding: 1rem;
+    padding-top: 4rem;
 }
 
 footer {
@@ -48,7 +49,7 @@ h1 {
 /* ########## MENU ########## */
 
 div#menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 }
@@ -71,8 +72,9 @@ div#menu nav {
     position: fixed;
     background: var(--main-purple);
     left: -200vw;
-    transition: width 0.2s linear;
+    transition: 0.2s linear;
     padding: 0.5rem;
+    height: 100vh;
 }
 
 div#menu nav * {
@@ -119,6 +121,7 @@ div#menu nav svg.nav_active {
 }
 
 header {
+    position: fixed;
     width: 100%;
     height: 4rem;
     background: var(--main-purple);
@@ -295,9 +298,12 @@ div#all_flights_in_db button {
 }
 
 div#delete_flight_container {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        width: 100%;
+        margin: auto;
+        justify-content: center;
 }
 
 div.flightResult img.airline_img {
@@ -339,7 +345,6 @@ div.flightResult div.travel_divider p.travel_hours {
     color: rgb(164, 164, 164);
     font-size: 0.7rem;
 }
-
 
 
 /* ########## LOGIN POPUP AND SIGNUP FORM ########## */
@@ -493,17 +498,34 @@ div#signup_container {
     display: none;
 }
 
+.sweet_alert_btn {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--white);
+}   
+
 /* ########## ADMIN PAGE ########## */
 div#admin_menu {
     display: flex;
     padding: 1.8rem 0;
-    place-content: space-evenly;
+    justify-content: center;
+    gap: 5rem;
+}
+
+main#admin h1,
+main#admin h2,
+main#admin p.admin_intro {
+    text-align: center;
+    padding: 0.5rem;
 }
 
 div#admin_menu p {
-    border: 1px solid var(--white);
+    /* border: 1px solid var(--white); */
     padding: 0.6rem 0.8rem;
     border-radius: 0.4rem;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 div#upload_image_container {
@@ -514,7 +536,7 @@ div#upload_image_container {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 1rem;
-    padding: 1rem;
+    padding: 1rem 0;
 }
 
 div#upload_image_container input[type="file"] {
@@ -525,6 +547,24 @@ div#upload_image_container input[type="file"] {
     border: 1px solid var(--white);
     padding: 0.6rem 0.8rem;
     border-radius: 0.4rem;
+} */
+
+div#upload_image_container form {
+    display: grid;
+    justify-self: center;
+    padding: 2rem;
+    border-radius: 0.6rem;
+    background: var(--second-purple);
+}
+
+div#upload_image_container input#file_to_upload{
+    background: none;
+    padding: inherit;
+    border-radius: 0;
+    font-size: 1rem;
+    height: auto;
+    padding: 1.5rem 0;
+    cursor: pointer;
 }
 
 div#upload_image_container form #import_image_button {
@@ -534,10 +574,15 @@ div#upload_image_container form #import_image_button {
     background: linear-gradient(135deg,#de1666 0%,#73146f 100%);
     font-size: 0.9rem;
     font-weight: 500;
-    width: auto;
+    width: max-content;
     color: var(--white);
     height: 2.5rem;
-} */
+    cursor: pointer;
+} 
+
+.image_error {
+    display: none;
+} 
 
 /* ########## STATIC PAGES ########## */
 
@@ -848,8 +893,3 @@ footer div.privacy_menu .privacy_menu_link a{
     margin: 0.5rem;
 }
 
-
-
-.image_error {
-    visibility: hidden;
-}

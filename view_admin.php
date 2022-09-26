@@ -23,11 +23,11 @@ require_once __DIR__.'/comp_header.php';
 
     <div id="upload_image_container">
         <form id="upload_image_form" enctype="multipart/form-data" onsubmit="validateImage(uploadImage); return false">
-            <label for="file_to_upload" class="custom_file_to_upload">Select image</label>
+            <label id="select_image" for="file_to_upload" class="custom_file_to_upload">Select image: </label>
+            <p class="image_error" >! Image not allowed</p>
             <input type="file" name="file_to_upload" id="file_to_upload">
             <input id="import_image_button" type="submit" value="Upload Image" name="submit">
         </form>
-        <p class="image_error">ERROR</p>
     </div>
 
     <div id="all_flights_in_db"></div>

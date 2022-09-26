@@ -63,7 +63,7 @@ function validateImage(callback) {
   const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
   if (!allowedExtensions.exec(document.querySelector("#file_to_upload").value)) {
     // alert('Please upload file having extensions .jpeg/.jpg/.png only.');
-    document.querySelector(".image_error").style.visibility = "visible";
+    document.querySelector(".image_error").style.display = "block";
     // document.querySelector('#fileToUpload').value = '';
     return;
   }

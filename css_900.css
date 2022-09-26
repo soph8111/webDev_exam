@@ -1,4 +1,9 @@
 @media (min-width: 900px) {
 
+    /* ########## STATIC PAGES ########## */
+
+    div.text_and_content_small div.small_cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
 
 }

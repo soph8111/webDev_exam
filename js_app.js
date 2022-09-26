@@ -105,7 +105,7 @@ async function getCitiesTo() {
   const searchForTo = document.querySelector("#to_input").value;
   let conn = await fetch("api-get-cities-to.php?from_city_name=" + searchForFrom + "&to_city_name=" + searchForTo); // fetch = get data in the background of the page
   let flights = await conn.json();
-  console.log(flights);
+  // console.log(flights);
 
   let allFlights = [];
   const originalFlightBlueprint = `
@@ -167,6 +167,8 @@ async function showFlightResults() {
   }
 
   // SHOW RESULTS
+  // location.href = "view_show_flight_results.php?from_city_name=" + fromInput.value + "&to_city_name=" + toInput.value;
+
   // Insert title of search
   document.querySelector("#title_of_flight_search").innerHTML = "From " + fromInput.value + " to " + toInput.value;
 
@@ -285,7 +287,7 @@ async function signup() {
     icon: "success",
     title: "Welcome " + user.user_first_name,
     text: "You are now signed up",
-    confirmButtonText: '<a href="admin">Take me to the admin-page</a>',
+    confirmButtonText: '<a href="admin" class="sweet_alert_btn">Take me to the admin-page</a>',
   });
 }
 
@@ -362,4 +364,36 @@ async function uploadImage() {
     return;
   }
   console.log("image uploaded");
+  Swal.fire({
+    icon: "success",
+    title: "Image uploaded",
+    text: "Your image is now uploaded",
+  });
+}
+
+// ########## STATIC PAGE ########
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
+
+function currentSlide(n) {
+  showSlides((slideIndex = n));
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex - 1].style.display = "block";
 }
