@@ -19,13 +19,12 @@ _validate_from_city_name();
 try {
     // Send them no results, if it can't find 'from_city'. Fallback
     $from_city_name = $_GET['from_city_name'] ?? 0;
-    $to_city_name = $_GET['to_city_name'] ?? '';
     // Connect to a database. Create a new PDO-connection (a php function). Connect to momondo.db
     $db = new PDO('sqlite:'.__DIR__.'/momondo.db');
     // If there is an error, run the catch
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Search
-    $q = $db->prepare('SELECT * FROM flights WHERE from_city_name LIKE :from_city_name');
+    $q = $db->prepare('SELECT DISTINCT from_city_name, from_city_airport_name, from_city_img, from_city_airport_short FROM flights WHERE from_city_name LIKE :from_city_name');
     $q->bindValue(':from_city_name', '%'.$from_city_name.'%');
     // Run the query
     $q->execute();
