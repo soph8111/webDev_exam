@@ -1,5 +1,5 @@
-<div class="login_overlay" onclick="toggleLoginPopup()"></div>
-    <div id="login_popup">
+<div <?php if($_GET['show_login_popup']){echo 'class="active login_overlay"';} ?> class="login_overlay" onclick="toggleLoginPopup()"></div>
+    <div id="login_popup" <?php if($_GET['show_login_popup']){echo 'class="active"';} ?>>
         <button class="close_button" onclick="toggleLoginPopup()">╳</button>
         <div id="login_container">
             <h3>Login</h3>
@@ -8,7 +8,7 @@
                     <label>Email</label>
                     <input type="email"
                     name="login_email"
-                    placeholder="Email"  
+                    placeholder="Email" 
                 >
                 </div>
 
@@ -19,7 +19,7 @@
                     placeholder="Password"
                     >
                 </div>
-                <button>Login</button>
+                <button id="btn_login">Login</button>
             </form>
 
             <p id="or">or</p>

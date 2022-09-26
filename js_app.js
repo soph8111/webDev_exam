@@ -151,7 +151,7 @@ function selectToCity() {
 
 // ########## SHOW FLIGHTS ##########
 async function showFlightResults() {
-  console.log("clicked");
+  // console.log("clicked");
   const fromInput = document.querySelector("#from_input");
   const toInput = document.querySelector("#to_input");
 
@@ -302,6 +302,36 @@ async function isEmailAvailable() {
   }
   document.querySelector("#email_error_message").style.display = "none";
   document.querySelector("#bt_signup").style.pointerEvents = "auto";
+}
+
+// async function isEmailInTheSystem() {
+//   const form = event.target.form;
+//   const conn = await fetch("api-is-email-in-the-system.php", {
+//     method: "POST",
+//     body: new FormData(form),
+//   });
+//   if (!conn.ok) {
+//     document.querySelector("#user_error_message").style.display = "block";
+//     //document.querySelector("#bt_signup").style.pointerEvents = "none";
+//     return;
+//   }
+//   document.querySelector("#user_error_message").style.display = "none";
+//   //document.querySelector("#bt_signup").style.pointerEvents = "auto";
+// }
+
+async function validateUserLogin() {
+  const theForm = document.querySelector("#login_form");
+  console.log(theForm);
+  const conn = await fetch("api-is-user-in-the-system.php", {
+    method: "POST",
+    body: new FormData(theForm),
+  });
+  if (!conn.ok) {
+    console.log("error");
+    return;
+  }
+  //document.querySelector("#btn_login").style.pointerEvents = "all";
+  console.log("User login");
 }
 
 // ########## ADMIN PAGE ##########

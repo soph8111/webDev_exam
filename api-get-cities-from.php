@@ -25,9 +25,8 @@ try {
     // If there is an error, run the catch
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Search
-    $q = $db->prepare('SELECT * FROM flights WHERE from_city_name LIKE :from_city_name AND to_city_name LIKE :to_city_name');
+    $q = $db->prepare('SELECT * FROM flights WHERE from_city_name LIKE :from_city_name');
     $q->bindValue(':from_city_name', '%'.$from_city_name.'%');
-    $q->bindValue(':to_city_name', '%'.$to_city_name.'%');
     // Run the query
     $q->execute();
     // Do something with it. Get all the data and put it in af variable.

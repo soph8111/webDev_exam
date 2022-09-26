@@ -31,5 +31,8 @@
 √   If logged in - be able to remove a flight from the database
     Update bride-login so popup will show if wrong login
     Validate api-show-all-flights-in-db
-    Validation on the image upload
+√   Validation on the image upload
+    Move JS in admin page
+    Update htaccess with.php
+
     
