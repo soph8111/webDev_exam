@@ -34,7 +34,7 @@ async function getCitiesFrom() {
   document.querySelector("#from_results").innerHTML = "";
 
   const searchFor = document.querySelector("#from_input").value;
-  let conn = await fetch("api-get-cities-from.php?from_city_name=" + searchFor); // fetch = get data in the background of the page
+  let conn = await fetch("api-get-cities-from?from_city_name=" + searchFor); // fetch = get data in the background of the page
   let flights = await conn.json();
 
   //console.log(flights);
@@ -103,7 +103,7 @@ async function getCitiesTo() {
 
   const searchForFrom = document.querySelector("#from_input").value;
   const searchForTo = document.querySelector("#to_input").value;
-  let conn = await fetch("api-get-cities-to.php?from_city_name=" + searchForFrom + "&to_city_name=" + searchForTo); // fetch = get data in the background of the page
+  let conn = await fetch("api-get-cities-to?from_city_name=" + searchForFrom + "&to_city_name=" + searchForTo); // fetch = get data in the background of the page
   let flights = await conn.json();
   // console.log(flights);
 
@@ -175,7 +175,7 @@ async function showFlightResults() {
   // Clean the flights div, so we only show new results
   document.querySelector("#flight_search_results").innerHTML = "";
 
-  let conn = await fetch("api-show-flight-results.php?from_city_name=" + fromInput.value + "&to_city_name=" + toInput.value);
+  let conn = await fetch("api-show-flight-results?from_city_name=" + fromInput.value + "&to_city_name=" + toInput.value);
   const flightsResults = await conn.json();
   console.log(flightsResults);
 
@@ -293,7 +293,7 @@ async function signup() {
 
 async function isEmailAvailable() {
   const form = event.target.form;
-  const conn = await fetch("api-is-email-available.php", {
+  const conn = await fetch("api-is-email-available", {
     method: "POST",
     body: new FormData(form),
   });
@@ -308,7 +308,7 @@ async function isEmailAvailable() {
 
 // async function isEmailInTheSystem() {
 //   const form = event.target.form;
-//   const conn = await fetch("api-is-email-in-the-system.php", {
+//   const conn = await fetch("api-is-email-in-the-system", {
 //     method: "POST",
 //     body: new FormData(form),
 //   });
@@ -324,7 +324,7 @@ async function isEmailAvailable() {
 async function validateUserLogin() {
   const theForm = document.querySelector("#login_form");
   console.log(theForm);
-  const conn = await fetch("api-is-user-in-the-system.php", {
+  const conn = await fetch("api-is-user-in-the-system", {
     method: "POST",
     body: new FormData(theForm),
   });
@@ -352,10 +352,26 @@ function showAdminImages() {
 //   console.log("test");
 // }
 
+async function deleteFlight() {
+  const theForm = event.target.form;
+  console.log(theForm);
+  const conn = await fetch("api-delete-flight-from-db", {
+    method: "POST",
+    body: new FormData(theForm),
+  });
+  const data = await conn.json();
+  if (!conn.ok) {
+    console.log(data);
+    return;
+  }
+  console.log(data);
+  theForm.parentElement.remove();
+}
+
 async function uploadImage() {
   const theForm = document.querySelector("#upload_image_form");
   console.log(theForm);
-  const conn = await fetch("api-upload-image.php", {
+  const conn = await fetch("api-upload-image", {
     method: "POST",
     body: new FormData(theForm),
   });

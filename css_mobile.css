@@ -46,6 +46,10 @@ h1 {
     padding: 1rem 2rem;
 }
 
+button {
+    cursor: pointer;
+}
+
 /* ########## MENU ########## */
 
 div#menu {

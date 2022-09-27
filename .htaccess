@@ -4,22 +4,26 @@ RewriteCond %{REQUEST_FILENAME} !-f
 # VIEW 
 RewriteRule ^$                     view_index.php               [NC,L]
 RewriteRule ^home$                 view_index.php               [NC,L]
-# RewriteRule ^login$                view_login.php               [NC,L]
 RewriteRule ^signup$               view_signup.php              [NC,L]
 RewriteRule ^admin$                view_admin.php               [NC,L]
 RewriteRule ^flights$              view_index.php               [NC,L]
 RewriteRule ^stays$                view_stays.php               [NC,L]
 RewriteRule ^car-hire$             view_car_hire.php            [NC,L]
-RewriteRule ^campers$              view_campers.php             [NC,L]
 RewriteRule ^things-to-do$         view_things_to_do.php        [NC,L]
 RewriteRule ^holidays$             view_holidays.php            [NC,L]
-RewriteRule ^trains_and_buses$     view_trains_and_buses.php    [NC,L]
 RewriteRule ^explore$              view_explore.php             [NC,L]
 RewriteRule ^trips$                view_strips.php              [NC,L]
 RewriteRule ^login$                /?show_login_popup=yes       [NC,L]
 
+
 # API
-RewriteRule ^api-signup$           api-signup.php               [NC,L]
+RewriteRule ^api-delete-flight-from-db$          api-delete-flight-from-db.php               [NC,L]
+RewriteRule ^api-get-cities-from$                api-get-cities-from.php                     [NC,L]
+RewriteRule ^api-get-cities-to$                  api-get-cities-to.php                       [NC,L]
+RewriteRule ^api-is-email-available$             api-is-email-available.php                  [NC,L]
+RewriteRule ^api-show-flight-results$            api-show-flight-results.php                 [NC,L]
+RewriteRule ^api-signup$                         api-signup.php                              [NC,L]
+RewriteRule ^api-upload-image$                   api-upload-image.php                        [NC,L]
 
 
 # BRIDGE
