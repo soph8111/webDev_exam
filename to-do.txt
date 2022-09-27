@@ -1,4 +1,4 @@
-    Multi language page. At least 2 languages. Tip: Use a "dictionary.php" to keep the data
+√   Multi language page. At least 2 languages. Tip: Use a "dictionary.php" to keep the data
 
 √   A user can login agains a hard-coded email and password. Tip: The hard-coded email could be "a@a.com" and the password "password".
    
@@ -29,11 +29,11 @@
 -   Style sweet alert at showFlightResults()
 √   If logged in - be able to remove a flight from the database
 √   Update bride-login so popup will show if wrong login
-    Validate api-show-all-flights-in-db
 √   Validation on the image upload
     Move JS in admin page
     Update htaccess with.php
 √   Fix fade onload (translate)
 √   ?_title
+    Change URL on menu, so it look nice
 
     

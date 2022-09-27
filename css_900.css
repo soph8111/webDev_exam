@@ -6,4 +6,10 @@
         grid-template-columns: repeat(3, 1fr);
     }
 
+    main#explore div.explore_destinations_container .explore_background{
+        margin: auto;
+        /* padding: 2rem 15rem; */
+        max-width: 850px;
+    }
+
 }

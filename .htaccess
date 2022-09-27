@@ -15,6 +15,7 @@ RewriteRule ^explore$              view_explore.php             [NC,L]
 RewriteRule ^trips$                view_strips.php              [NC,L]
 RewriteRule ^login$                /?show_login_popup=yes       [NC,L]
 
+ErrorDocument 404                  /view_404.php
 
 # API
 RewriteRule ^api-delete-flight-from-db$          api-delete-flight-from-db.php               [NC,L]

@@ -56,12 +56,14 @@ div#menu {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 100;
 }
 
 div#menu div#burger_menu {
     height: 4rem;
     display: flex;
-    padding-left: 1rem;
+    padding-left: 1.2rem;
+    z-index: 100;
 }
 
 div#menu div#burger_menu button{
@@ -133,6 +135,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem 0 3.6rem;
+    z-index: 100;
 }
 
 header div img {
@@ -211,6 +214,7 @@ div#flight_search div#to_container div#to_results {
     border-radius: 0.7rem;
     margin-top: 0.5rem;
     color: black;
+    z-index: 10;
 }
 
 div#flight_search div#from_container div#from_results div.from_result_container,
@@ -356,12 +360,13 @@ div.flightResult div.travel_divider p.travel_hours {
 div.login_overlay {
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.7);
     display: none;
     transition: 0.6s cubic-bezier(0.42, 0, 0.28, 1.02);
+    z-index: 1000;
 }
 
 div.login_overlay.active {
@@ -373,11 +378,12 @@ div#login_popup {
     padding: 1.2rem 2rem;
     border-radius: 0.8rem;
     color: black;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: -200vw;
     transform: translate(-50%, -50%);
     transition: 0.4s cubic-bezier(0.42, 0, 0.28, 1.02);
+    z-index: 1000;
 }
 
 div#login_popup.active {
@@ -507,7 +513,7 @@ div#signup_container {
     font-size: 1rem;
     font-weight: 500;
     color: var(--white);
-}   
+}  
 
 /* ########## ADMIN PAGE ########## */
 div#admin_menu {
@@ -587,6 +593,12 @@ div#upload_image_container form #import_image_button {
 .image_error {
     display: none;
 } 
+
+/* 404 ERROR PAGE */
+
+main#page_not_found {
+    height: calc(100% - 350px);
+}
 
 /* ########## STATIC PAGES ########## */
 
@@ -840,6 +852,95 @@ div.map .gmap_iframe {
 }
 div.map .gmap_canvas a {
     display: none;
+}
+
+main#explore {
+    padding: 4rem 0 0;
+    max-width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    perspective: 2px;
+    background: var(--second-purple);
+}
+
+main#explore div.static_form {
+    padding: 0;
+}
+
+main#explore div.static_search_container {
+    border-radius: 0;
+    background-color: var(--second-purple);
+}
+
+main#explore div.static_form button.search_button {
+    height: 3rem;
+    width: 100%;
+    border-radius: 0.6rem;
+    margin: 0;
+}
+
+main#explore div#parallax {
+    transform-style: preserve-3d;
+}
+
+main#explore .mapouter {
+    height: 75vh;
+    transform: translateZ(-1px) scale(1.5);
+}
+
+main#explore .mapouter .gmap_canvas, 
+main#explore .mapouter #gmap_canvas {
+    height: 100%;
+    width: 100%;
+}
+
+main#explore div.explore_destinations_container {
+    padding: 2rem;
+    background: var(--second-purple);
+}
+
+main#explore div.explore_destinations_container div.explore_destinations {
+    display: grid;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+main#explore div.explore_destinations_container div.explore_destinations .explore_card_img {
+    height: 166px;
+    border-radius: 0.6rem 0.6rem 0 0;
+    overflow: hidden;
+}
+
+main#explore div.explore_destinations_container div.explore_destinations img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.6rem 0.6rem 0 0;
+    transition: 0.2s ease-in;
+}
+
+main#explore div.explore_destinations_container div.explore_destinations img:hover {
+    transform: scale(1.05);
+}
+
+main#explore div.explore_destinations_container div.explore_destinations div.explore_card_info {
+    background: white;
+    padding: 1rem;
+    border-radius: 0 0 0.6rem 0.6rem;
+    color: black;
+}
+
+main#explore div.explore_destinations_container div.explore_destinations div.explore_card_info .explore_bold {
+    display: flex;
+    place-content: space-between;
+    font-weight: 600;
+}
+
+main#explore div.explore_destinations_container div.explore_destinations div.explore_card_info .explore_thin {
+    display: flex;
+    place-content: space-between;
+    font-size: 0.9rem;
 }
 
 /* ########## FOOTER ########## */

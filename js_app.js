@@ -143,7 +143,6 @@ async function getCitiesTo() {
 
 function selectToCity() {
   const cityName = event.target.querySelector(".to_city").innerText;
-  document.querySelector("#to_input").style.pointerEvents = "none";
   document.querySelector("#to_input").value = cityName;
   document.querySelector("#to_results").style.display = "none";
   document.querySelector("#to_results").innerHTML = "";
@@ -152,8 +151,8 @@ function selectToCity() {
 // ########## SHOW FLIGHTS ##########
 async function showFlightResults() {
   // console.log("clicked");
-  const fromInput = document.querySelector("#from_input");
-  const toInput = document.querySelector("#to_input");
+  const fromInput = document.querySelector("#from_input").value;
+  const toInput = document.querySelector("#to_input").value;
 
   // VALIDATE
   if (fromInput.value == "") {
@@ -170,14 +169,21 @@ async function showFlightResults() {
   // location.href = "view_show_flight_results.php?from_city_name=" + fromInput.value + "&to_city_name=" + toInput.value;
 
   // Insert title of search
-  document.querySelector("#title_of_flight_search").innerHTML = "From " + fromInput.value + " to " + toInput.value;
+  document.querySelector("#title_of_flight_search").innerHTML = "From " + fromInput + " to " + toInput;
 
   // Clean the flights div, so we only show new results
   document.querySelector("#flight_search_results").innerHTML = "";
 
-  let conn = await fetch("api-show-flight-results?from_city_name=" + fromInput.value + "&to_city_name=" + toInput.value);
+  let conn = await fetch("api-show-flight-results?from_city_name=" + fromInput + "&to_city_name=" + toInput);
   const flightsResults = await conn.json();
   console.log(flightsResults);
+
+  // No flight avalible
+  if (flightsResults == "") {
+    console.log("no flights avalible");
+    document.querySelector("#flight_search_results").insertAdjacentHTML("afterbegin", "<p> Sorry, there are no flights between " + fromInput + " and " + toInput + " at the moment</p>");
+    return;
+  }
 
   let allFlights = [];
   const originalFlightBlueprint = `
@@ -306,21 +312,6 @@ async function isEmailAvailable() {
   document.querySelector("#bt_signup").style.pointerEvents = "auto";
 }
 
-// async function isEmailInTheSystem() {
-//   const form = event.target.form;
-//   const conn = await fetch("api-is-email-in-the-system", {
-//     method: "POST",
-//     body: new FormData(form),
-//   });
-//   if (!conn.ok) {
-//     document.querySelector("#user_error_message").style.display = "block";
-//     //document.querySelector("#bt_signup").style.pointerEvents = "none";
-//     return;
-//   }
-//   document.querySelector("#user_error_message").style.display = "none";
-//   //document.querySelector("#bt_signup").style.pointerEvents = "auto";
-// }
-
 async function validateUserLogin() {
   const theForm = document.querySelector("#login_form");
   console.log(theForm);
@@ -385,31 +376,4 @@ async function uploadImage() {
     title: "Image uploaded",
     text: "Your image is now uploaded",
   });
-}
-
-// ########## STATIC PAGE ########
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-}
-
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slides[slideIndex - 1].style.display = "block";
 }

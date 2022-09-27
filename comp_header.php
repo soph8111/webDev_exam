@@ -94,3 +94,7 @@ require_once __DIR__.'/comp_dictionary.php';
             </div>
         </nav>
     </div>
+    
+    <?php
+    include_once __DIR__.'/comp_login-popup.php';
+    ?>

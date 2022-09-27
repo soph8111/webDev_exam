@@ -76,7 +76,7 @@ try {
                 type="text" 
                 style="display:none" 
                 name="flight_id" 
-                value="#flight_id#">
+                value="<?= $flight[flight_id]?>">
             <button onclick="deleteFlight()">🗑️</button>
             </form>
 
