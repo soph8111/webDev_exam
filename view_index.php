@@ -28,16 +28,6 @@ require_once __DIR__.'/comp_header.php';
     </div>
 
     <div id="main">
-        <div id="flight_results_container">
-            <div id="left" style="display:none"> 
-                left
-            </div>
-            <div id="right">
-                <h2 id="title_of_flight_search"></h2>
-                <div id="flight_search_results"></div>
-            </div>
-        </div>
-
         <div class="image_and_text">
             <div class="image_content">
                 <img src="images/static_pages/live_happy.jpg" alt="Best of cph">

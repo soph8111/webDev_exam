@@ -53,7 +53,7 @@ try {
             <img class="airline_img" src="/images/airlines/<?= $flight[airline]?>.png" alt="airline"></>
             <div class="flight_result_info">
                 <div class="from_info">
-                <p class="departure_time"><?= $flight[from_city_name]?></p>
+                <p class="departure_time"><?= $flight[departure_time]?></p>
                 <p class="from_airport_short"><?= $flight[from_city_airport_short]?></p>
                 <p class="from_airport_name"><?= $flight[from_city_airport_name]?></p>
                 </div>

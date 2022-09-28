@@ -271,16 +271,20 @@ div#flight_search button#search {
 }
 
 /* ########## FLIGHT RESULTS ########## */
-div#right h2#title_of_flight_search {
-    text-align: center;
-    padding: 0.8rem 0;
-    font-size: 1.3rem;
-}
-
-div#right div#flight_search_results, 
+div#flight_search_results, 
 div#all_flights_in_db {
     display: grid;
     gap: 1rem;
+}
+
+div#flight_search_results {
+    max-width: 700px;
+    margin: auto;
+}
+
+div#flight_search_results h2 {
+    font-size: 1.2rem;
+    text-align: center;
 }
 
 div.flightResult {

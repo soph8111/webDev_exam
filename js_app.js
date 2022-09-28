@@ -15,7 +15,7 @@ function toggleMenu() {
 
 // ########## GET CITIES FROM ##########
 
-function showFromResults() {
+function showFromResults(fromValue) {
   const theFromInput = document.querySelector("#from_input");
 
   // VALIDATE??
@@ -149,84 +149,28 @@ function selectToCity() {
 }
 
 // ########## SHOW FLIGHTS ##########
-async function showFlightResults() {
+function showFlightResults() {
   // console.log("clicked");
   const fromInput = document.querySelector("#from_input").value;
   const toInput = document.querySelector("#to_input").value;
 
   // VALIDATE
-  if (fromInput.value == "") {
+  if (fromInput == "") {
     // console.log("From input is empty");
     Swal.fire("You didn't select any airport", "You know where to travel from? Select an airport in the search form", "question");
   }
 
-  if (toInput.value == "") {
+  if (toInput == "") {
     // console.log("To input is empty");
     Swal.fire("You didn't select any airport", "You know where to travel to? Select an airport in the search form", "question");
   }
 
   // SHOW RESULTS
-  // location.href = "view_show_flight_results.php?from_city_name=" + fromInput.value + "&to_city_name=" + toInput.value;
+  // location.href = "view_show_flight_results.php?from_city_name=" + fromInput + "&to_city_name=" + toInput;
+  location.href = "/search/" + fromInput + "/" + toInput;
 
-  // Insert title of search
-  document.querySelector("#title_of_flight_search").innerHTML = "From " + fromInput + " to " + toInput;
-
-  // Clean the flights div, so we only show new results
-  document.querySelector("#flight_search_results").innerHTML = "";
-
-  let conn = await fetch("api-show-flight-results?from_city_name=" + fromInput + "&to_city_name=" + toInput);
-  const flightsResults = await conn.json();
-  console.log(flightsResults);
-
-  // No flight avalible
-  if (flightsResults == "") {
-    console.log("no flights avalible");
-    document.querySelector("#flight_search_results").insertAdjacentHTML("afterbegin", "<p> Sorry, there are no flights between " + fromInput + " and " + toInput + " at the moment</p>");
-    return;
-  }
-
-  let allFlights = [];
-  const originalFlightBlueprint = `
-    <div class="flightResult">
-      <img class="airline_img" src="/images/airlines/#airline_img#" alt="airline"></>
-      <div class="flight_result_info">
-        <div class="from_info">
-          <p class="departure_time">#departure_time#</p>
-          <p class="from_airport_short">#from_airport_short#</p>
-          <p class="from_airport_name">#from_airport_name#</p>
-        </div>
-        <div class="travel_divider">
-          <p class="divider"></p>
-          <p class="travel_hours">#travel_hours#</p>
-        </div>
-        <div class="to_info">
-          <p class="arrival_time">#arrival_time#</p>
-          <p class="to_airport_short">#to_airport_short#</p>
-          <p class="to_airport_name">#to_airport_name#</p>
-        </div>
-      </div>
-      <p class="flight_stops">#stops#</p>
-      <p class="ticket_price">#price#</p>
-    </div>`;
-
-  flightsResults.forEach((flight) => {
-    let divFlight = originalFlightBlueprint;
-
-    divFlight = divFlight.replace("#airline_img#", flight.airline + ".png");
-    divFlight = divFlight.replace("#departure_time#", flight.departure_time);
-    divFlight = divFlight.replace("#arrival_time#", flight.arrival_time);
-    divFlight = divFlight.replace("#from_airport_short#", flight.from_city_airport_short);
-    divFlight = divFlight.replace("#from_airport_name#", flight.from_city_airport_name);
-    divFlight = divFlight.replace("#to_airport_short#", flight.to_city_airport_short);
-    divFlight = divFlight.replace("#to_airport_name#", flight.to_city_airport_name);
-    divFlight = divFlight.replace("#stops#", flight.stops);
-    divFlight = divFlight.replace("#travel_hours#", flight.flight_time);
-    divFlight = divFlight.replace("#price#", flight.price + "￡");
-
-    allFlights += divFlight;
-  });
-
-  document.querySelector("#flight_search_results").insertAdjacentHTML("afterbegin", allFlights);
+  // document.querySelector("#from_input1").value = fromInput;
+  // document.querySelector("#to_input1").value = toInput;
 }
 
 // ########## TOGGLE LOGIN POPUP ##########
