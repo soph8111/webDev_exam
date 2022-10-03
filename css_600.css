@@ -72,26 +72,26 @@
 
     /* ########## FORM ########## */
 
-    div#flight_search {
+    div.flight_search {
         height: auto;
     }
 
-    div#flight_search form {
+    div.flight_search form {
         display: grid;
         grid-template-columns: 1fr auto;
         gap: 1rem;
         align-items: center;
     }
 
-    div#flight_search form div#search_container {
+    div.flight_search form div.search_container {
         grid-template-columns: 1fr 1fr;
         padding: 0.4rem;
         gap: 0.4rem;
     }
 
-    div#flight_search div#from_container div#from_results, 
-    div#flight_search div#to_container div#to_resultsdiv#flight_search div#from_container div#from_results, 
-    div#flight_search div#to_container div#to_results {
+    div.flight_search div.from_container div.from_results, 
+    div.flight_search div.to_container div.to_resultsdiv.flight_search div.from_container div.from_results, 
+    div.flight_search div.to_container div.to_results {
         width: 400px;
     }
 

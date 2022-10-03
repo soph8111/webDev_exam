@@ -12,7 +12,7 @@ require_once __DIR__.'/_x.php';
 
 // VALIDATE
 _validate_to_city_name();
-// _validate_from_city_name();
+_validate_from_city_name();
 
 // ########## CONNECT TO DATABASE ########## 
 // Tell php to try to run the following code. If it does not work, run catch
@@ -40,5 +40,5 @@ try {
     catch(Exception $ex){
     // echo 'error';
     http_response_code(400);
-    echo json_encode(['Info:' => 'Uuuuppss...']);
+    echo json_encode(['Info:' => 'System under maintainance']);
     }

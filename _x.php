@@ -16,7 +16,7 @@ define('_REGEX_PASSWORD', '/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/');
 // ########## VALIDATE SEARCH FLIGHT INPUT FIELDS ########## 
 
 function _validate_from_city_name() {
-    $from__city_name = $_GET['from_city_name'];
+    $from_city_name = $_GET['from_city_name'];
 
     // If from_city_name is not passed in a GET
     if ( ! isset ($_GET['from_city_name'])) {
@@ -26,14 +26,14 @@ function _validate_from_city_name() {
     }
 
     // If from_city_name is too short
-    if ( strlen($from__city_name) < 1 ) { // Strlen = string length
+    if ( strlen($from_city_name) < 1 ) { // Strlen = string length
         http_response_code(400);
         echo json_encode(['info'=>'from_city_name is too short']); // Return text as json
         exit();
     };
 
     // If from_city_name is too long
-    if ( strlen($from__city_name) > 20 ) {
+    if ( strlen($from_city_name) > 20 ) {
         http_response_code(400);
         echo json_encode(['info'=>'form_city_name is too long']); // Return text as json
         exit();
@@ -134,8 +134,9 @@ function _validate_item_image(){
         break;
       }
     
+      // Success
       if(move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], "$target_dir/$random_image_name")){
-        echo 'ok';
+        //echo 'ok ';
         return $target_file;
         exit();
       }  

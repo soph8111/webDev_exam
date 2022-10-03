@@ -38,5 +38,5 @@ try {
     catch(Exception $ex){
     // echo 'error';
     http_response_code(400);
-    echo json_encode(['Info:' => 'Uuuuppss...']);
+    echo json_encode(['Info:' => 'System under maintainance']);
     }

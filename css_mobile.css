@@ -178,7 +178,7 @@ header img {
 
 /*  ########## SEARCHS FLIGHT FORM ##########  */
 
-div#flight_search {
+div.flight_search {
     width: 100%;
     height: 20rem;
     background: var(--main-purple);
@@ -186,7 +186,7 @@ div#flight_search {
     
 }
 
-div#flight_search form div#search_container {
+div.flight_search form div.search_container {
     display: grid;
     gap: 0.3rem;
     background-color: var(--blue);
@@ -194,8 +194,8 @@ div#flight_search form div#search_container {
     border-radius: 0.25rem;
 }
 
-div#flight_search div#from_container input,
-div#flight_search div#to_container input{   
+div.flight_search div.from_container input,
+div.flight_search div.to_container input{   
     background-image: url('/images/icons/airplane.svg');
     background-repeat: no-repeat;
     background-size: 1.5rem;
@@ -203,8 +203,8 @@ div#flight_search div#to_container input{
     width: 100%;
 }
 
-div#flight_search div#from_container div#from_results,
-div#flight_search div#to_container div#to_results {
+div.flight_search div.from_container div.from_results,
+div.flight_search div.to_container div.to_results {
     position: absolute;
     display: none;
     width: 80vw;
@@ -217,8 +217,8 @@ div#flight_search div#to_container div#to_results {
     z-index: 10;
 }
 
-div#flight_search div#from_container div#from_results div.from_result_container,
-div#flight_search div#to_container div#to_results div.to_result_container {
+div.flight_search div.from_container div.from_results div.from_result_container,
+div.flight_search div.to_container div.to_results div.to_result_container {
     display: grid;
     grid-template-columns: 1fr 3fr;
     align-items: center;
@@ -226,36 +226,36 @@ div#flight_search div#to_container div#to_results div.to_result_container {
     cursor: pointer;
 }
 
-div#flight_search div#from_container div#from_results div.from_result_container .from_details .from_top,
-div#flight_search div#to_container div#to_results div.to_result_container .to_details .to_top{
+div.flight_search div.from_container div.from_results div.from_result_container .from_details .from_top,
+div.flight_search div.to_container div.to_results div.to_result_container .to_details .to_top{
     display: flex;
 }
 
-div#flight_search div#from_container div#from_results div.from_result_container .from_details .from_top .from_airport_short,
-div#flight_search div#to_container div#to_results div.to_result_container .to_details .to_top .to_airport_short {
+div.flight_search div.from_container div.from_results div.from_result_container .from_details .from_top .from_airport_short,
+div.flight_search div.to_container div.to_results div.to_result_container .to_details .to_top .to_airport_short {
     padding: 0 0.5rem;
     color: rgb(107, 107, 107);
 }
 
-div#flight_search div#from_container div#from_results div.from_result_container .from_details .from_airport,
-div#flight_search div#to_container div#to_results div.to_result_container .to_details .to_airport{
+div.flight_search div.from_container div.from_results div.from_result_container .from_details .from_airport,
+div.flight_search div.to_container div.to_results div.to_result_container .to_details .to_airport{
     color: rgb(107, 107, 107);
 }
 
-div#flight_search div#from_container div#from_results div.from_result_container *,
-div#flight_search div#to_container div#to_results div.to_result_container * {
+div.flight_search div.from_container div.from_results div.from_result_container *,
+div.flight_search div.to_container div.to_results div.to_result_container * {
     pointer-events: none;
 }
 
 
-div#flight_search div#from_container div#from_results div.from_result_container img,
-div#flight_search div#to_container div#to_results div.to_result_container img {
+div.flight_search div.from_container div.from_results div.from_result_container img,
+div.flight_search div.to_container div.to_results div.to_result_container img {
     width: 100%;
     padding: 0.5rem;
     border-radius: 20%;
 }
 
-div#flight_search button#search {
+div.flight_search button.search_btn {
     display: flex;
     margin: 1rem auto;
     width: 5.5rem;

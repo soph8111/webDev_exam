@@ -15,26 +15,26 @@ function toggleMenu() {
 
 // ########## GET CITIES FROM ##########
 
-function showFromResults(fromValue) {
-  const theFromInput = document.querySelector("#from_input");
+function showFromResults() {
+  const theFromInput = event.target.value;
 
   // VALIDATE??
 
-  if (theFromInput.value.length > 0) {
-    document.querySelector("#from_results").style.display = "block";
+  if (theFromInput.length > 0) {
+    document.querySelector(".from_results").style.display = "block";
     getCitiesFrom();
   } else {
-    document.querySelector("#from_results").style.display = "none";
+    document.querySelector(".from_results").style.display = "none";
   }
 }
 
 // Get cities from
 async function getCitiesFrom() {
   // Clean the flights div, so we only show new results
-  document.querySelector("#from_results").innerHTML = "";
+  document.querySelector(".from_results").innerHTML = "";
 
-  const searchFor = document.querySelector("#from_input").value;
-  let conn = await fetch("api-get-cities-from?from_city_name=" + searchFor); // fetch = get data in the background of the page
+  const searchFor = event.target.value;
+  let conn = await fetch("/api-get-cities-from?from_city_name=" + searchFor); // fetch = get data in the background of the page
   let flights = await conn.json();
 
   //console.log(flights);
@@ -66,7 +66,7 @@ async function getCitiesFrom() {
     allFlights += divFlight;
   });
 
-  document.querySelector("#from_results").insertAdjacentHTML("afterbegin", allFlights);
+  document.querySelector(".from_results").insertAdjacentHTML("afterbegin", allFlights);
 }
 
 // function hideFromResults() {
@@ -76,34 +76,34 @@ async function getCitiesFrom() {
 
 function selectFromCity() {
   const cityName = event.target.querySelector(".from_city").innerText;
-  document.querySelector("#from_input").value = cityName;
-  document.querySelector("#from_results").style.display = "none";
-  document.querySelector("#from_results").innerHTML = "";
+  document.querySelector(".from_input").value = cityName;
+  document.querySelector(".from_results").style.display = "none";
+  document.querySelector(".from_results").innerHTML = "";
 }
 
 // ########## GET CITIES TO ##########
 
 function showToResults() {
-  const theToInput = document.querySelector("#to_input");
+  const theToInput = event.target.value;
 
   // VALIDATE??
 
-  if (theToInput.value.length > 0) {
-    document.querySelector("#to_results").style.display = "block";
+  if (theToInput.length > 0) {
+    document.querySelector(".to_results").style.display = "block";
     getCitiesTo();
   } else {
-    document.querySelector("#to_results").style.display = "none";
+    document.querySelector(".to_results").style.display = "none";
   }
 }
 
 // Get cities to
 async function getCitiesTo() {
   // Clean the flights div, so we only show new results
-  document.querySelector("#to_results").innerHTML = "";
+  document.querySelector(".to_results").innerHTML = "";
 
-  const searchForFrom = document.querySelector("#from_input").value;
-  const searchForTo = document.querySelector("#to_input").value;
-  let conn = await fetch("api-get-cities-to?from_city_name=" + searchForFrom + "&to_city_name=" + searchForTo); // fetch = get data in the background of the page
+  const searchForFrom = document.querySelector(".from_input").value;
+  const searchForTo = document.querySelector(".to_input").value;
+  let conn = await fetch("/api-get-cities-to?from_city_name=" + searchForFrom + "&to_city_name=" + searchForTo); // fetch = get data in the background of the page
   let flights = await conn.json();
   // console.log(flights);
 
@@ -133,7 +133,7 @@ async function getCitiesTo() {
     allFlights += divFlight;
   });
 
-  document.querySelector("#to_results").insertAdjacentHTML("afterbegin", allFlights);
+  document.querySelector(".to_results").insertAdjacentHTML("afterbegin", allFlights);
 }
 
 // function hideToResults() {
@@ -143,16 +143,16 @@ async function getCitiesTo() {
 
 function selectToCity() {
   const cityName = event.target.querySelector(".to_city").innerText;
-  document.querySelector("#to_input").value = cityName;
-  document.querySelector("#to_results").style.display = "none";
-  document.querySelector("#to_results").innerHTML = "";
+  document.querySelector(".to_input").value = cityName;
+  document.querySelector(".to_results").style.display = "none";
+  document.querySelector(".to_results").innerHTML = "";
 }
 
 // ########## SHOW FLIGHTS ##########
 function showFlightResults() {
   // console.log("clicked");
-  const fromInput = document.querySelector("#from_input").value;
-  const toInput = document.querySelector("#to_input").value;
+  const fromInput = document.querySelector(".from_input").value;
+  const toInput = document.querySelector(".to_input").value;
 
   // VALIDATE
   if (fromInput == "") {
@@ -169,8 +169,8 @@ function showFlightResults() {
   // location.href = "view_show_flight_results.php?from_city_name=" + fromInput + "&to_city_name=" + toInput;
   location.href = "/search/" + fromInput + "/" + toInput;
 
-  // document.querySelector("#from_input1").value = fromInput;
-  // document.querySelector("#to_input1").value = toInput;
+  document.querySelector(".from_input").value = fromInput;
+  document.querySelector(".to_input").value = toInput;
 }
 
 // ########## TOGGLE LOGIN POPUP ##########

@@ -9,21 +9,29 @@ require_once __DIR__.'/comp_header.php';
 
     <h1><?=$dictionary[$lang.'_welcome']?></h1>
 
-    <div id="flight_search">
+    <div class="flight_search">
         <form>
-            <div id="search_container">
-                <div id="from_container">
-                    <input id="from_input" name="from_city_name" type="text" placeholder="<?=$dictionary[$lang.'_from']?>?" 
+            <div class="search_container">
+                <div class="from_container">
+                    <input class="from_input" 
+                    name="from_city_name" 
+                    type="text" 
+                    placeholder="<?=$dictionary[$lang.'_from']?>?"
+                    autocomplete="off" 
                     oninput="showFromResults()">
-                    <div id="from_results"></div>
+                    <div class="from_results"></div>
                 </div>
-                <div id="to_container">
-                    <input id="to_input" name="to_city_name" type="text" placeholder="<?=$dictionary[$lang.'_to']?>?" 
+                <div class="to_container">
+                    <input class="to_input" 
+                    name="to_city_name" 
+                    type="text" 
+                    placeholder="<?=$dictionary[$lang.'_to']?>?" 
+                    autocomplete="off"
                     oninput="showToResults()">
-                    <div id="to_results"></div>
+                    <div class="to_results"></div>
                 </div>
             </div>
-            <button id="search" onclick="showFlightResults(); return false"><?=$dictionary[$lang.'_search']?></button>
+            <button class="search_btn" onclick="showFlightResults(); return false"><?=$dictionary[$lang.'_search']?></button>
         </form>
     </div>
 

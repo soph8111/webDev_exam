@@ -1,0 +1,84 @@
+<script>
+// ###### Create an array with three letters and loop through it. You can do this in PHP or JS ###### 
+
+// const myArray = ['A', 'B', 'C'];
+
+// Foreach loop
+
+// myArray.forEach(item => {
+//     console.log('Item: ' + item);
+// });
+
+// For loop
+
+// for (let i = 0; i < myArray.length; i++) {
+//     console.log('Item: ' + myArray[i]);
+// };
+
+</script>
+
+<?php
+
+// $myArray = ['A', 'B', 'C'];
+
+// Foreach loop
+
+// foreach ($myArray as $item) {
+//     // In the frontend
+//     echo $item;
+//     // In the console
+//     echo '<script> console.log('.$item.') </script>';
+// };
+
+// For loop
+
+// for ($i = 0; $i < count($myArray); $i++) {
+//         // In the frontend
+//         echo $myArray[$i];
+//         // In the console
+//         echo '<script> console.log('.$myArray[$i].') </script>';
+// };
+
+
+
+
+// ###### Create a variable with your name and put it in a SESSION ###### 
+// $myName = 'Sophie';
+
+// session_start();
+// $_SESSION['my_name'] = $myName;
+// echo $_SESSION['my_name'];
+// // session_destroy();
+?>
+
+
+<script>
+// ###### Create a JS function that connects to an imaginary API using FETCH ###### 
+// async function connectToApi() {
+//     let conn = await fetch('api-name.php');
+//     const data = await conn.json();
+// }
+
+</script>
+
+
+
+<?php
+// ###### Pass your name via the URL and echo it using PHP ###### 
+// // URL: http://localhost:8888/index.php?first_name=Sophie&last_name=Kjeldsen
+//echo $_GET['first_name'].' '. $_GET['last_name'];
+
+?>
+
+<html>
+<!-- ###### Pass your name via an input field in a form and get it with PHP ######  -->
+<form>
+    <input type="text" name="my_name">
+    <button type="submit">Click</button>
+</form>
+
+<?= $_GET['my_name']; ?> 
+
+
+
+

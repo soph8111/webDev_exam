@@ -5,8 +5,8 @@ ini_set('display_errors', 1);
 require_once __DIR__.'/_x.php';
 
 // VALIDATE
-_validate_to_city_name();
 _validate_from_city_name();
+_validate_to_city_name();
 
 // ########## CONNECT TO DATABASE ########## 
 try {
@@ -23,5 +23,5 @@ try {
     }
     catch(Exception $ex){
     http_response_code(400);
-    echo json_encode(['Info:' => 'Uuuuppss...']);
+    echo json_encode(['Info:' => 'System under maintainance']);
     }

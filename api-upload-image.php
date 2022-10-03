@@ -5,6 +5,10 @@ ini_set('display_errors', 1);
 
 _validate_item_image();
 
+$image = ['image_name'=>$_FILES['file_to_upload'] ['name']];
+
+_respond($image);
+
 // $target_dir = 'images/user_upload';
 // $target_file = $target_dir . basename($_FILES['file_to_upload']['name']); // images/test.png
 // $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); // png | jpg | zip
